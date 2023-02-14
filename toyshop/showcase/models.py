@@ -5,14 +5,18 @@ from django.db import models
 
 class Toy(models.Model):
     name = models.CharField(max_length=50)
-    description = models.TextField
+    description = models.TextField(blank=True)
     material = models.ForeignKey('Materials', on_delete=models.CASCADE)
     size = models.ForeignKey('Sizes', on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     in_stock = models.BooleanField()
     quantity = models.PositiveIntegerField()
     category = models.ForeignKey("Categories", on_delete=models.CASCADE)
-    slug = models.SlugField(max_length=50)
+    slug = models.SlugField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name
+    
 
 
 class Materials(models.Model):
