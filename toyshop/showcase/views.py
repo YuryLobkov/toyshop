@@ -5,7 +5,8 @@ from django.views.generic import ListView, DetailView
 """
 PROJECT IMPORTS
 """
-from .models import Toy
+from .models import Toy, Customer
+from .forms import OrderForm, PurchaseForm
 
 # Create your views here.
 
@@ -13,15 +14,16 @@ class ShowcaseMainView(ListView):
     model = Toy
     template_name = "showcase/index.html"
 
+
 def toy_detail(request, slug):
     toy = get_object_or_404(Toy, slug=slug)
     return render(request, 'showcase/toy_detail.html', {'toy':toy})
 
 
+def purchase_page(request):
+    form = PurchaseForm()
+    return render(request, 'showcase/purchase_page.html', {'form':form})
 
-def purchase_page():
-    pass
-
-
-def order_page():
-    pass
+def order_page(request):
+    form = OrderForm()
+    return render(request, 'showcase/order_page.html', {'form':form})
