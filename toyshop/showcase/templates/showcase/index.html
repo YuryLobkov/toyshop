@@ -3,8 +3,8 @@
 {% block content %}
 <div class="container d-lg-flex justify-content-center">
     {% for toy in toy_list %}
-    <a style="text-decoration: none; color: black;" target="_top" href="{% url 'toy-detail' slug=toy.slug %}">
-        <div class="card mb-3 m-2" >
+    <div class="card mb-3 m-2" >
+        <a style="text-decoration: none; color: black;" target="_top" href="{% url 'toy-detail' slug=toy.slug %}">
             <div class="row g-0 my-2 justify-content-center">
                 <div class="col-lg-6 d-flex align-items-center " style="width: 200px;">
                     <img src="{{toy.image.url}}" class="card-img-top" alt="{{toy.name}}">
@@ -30,8 +30,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </a>
+        </a>
+    </div>
     {% endfor %}
 </div>
 {% endblock content %}
