@@ -1,0 +1,35 @@
+{% extends 'showcase/base.html' %}
+{% block title %} Homepage {% endblock title %}
+{% block content %}
+<div class="container d-lg-flex justify-content-center">
+    {% for toy in toy_list %}
+        <div class="card mb-3 m-2" >
+            <div class="row g-0 my-2 justify-content-center">
+                <div class="col-lg-6 d-flex align-items-center " style="width: 200px;">
+                    <img src="{{toy.image.url}}" class="card-img-top" alt="{{toy.name}}">
+                </div>
+                <div class="col-lg-6">
+                    <div class="card-body">
+                        <h5 class="card-title">{{toy.name}}</h5>
+                        <p class="card-text">{{toy.description}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint fuga sequi consequuntur modi ex quas est amet, alias vitae delectus veniam cumque exercitationem, libero, rerum tempora reiciendis temporibus laudantium quasi?</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Material: {{toy.material}}</li>
+                        <li class="list-group-item">Size: {{toy.size}}</li>
+                        <li class="list-group-item">Category: {{toy.category}}</li>
+                    </ul>
+                    <div class="card-body">
+                        {% if toy.in_stock %}
+                            <span>Avalible</span>
+                            <a href="#" class="card-link">Buy now</a>
+                        {% else %}
+                            <span>Out of stock</span>
+                            <a href="#" class="card-link">Order</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

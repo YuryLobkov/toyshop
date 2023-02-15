@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from django.views.generic import ListView
+from .models import Toy
 
 # Create your views here.
+
+class ShowcaseMainView(ListView):
+    model = Toy
+    template_name = "showcase/index.html"
