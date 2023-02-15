@@ -1,6 +1,7 @@
 from django.db import models
 import os
 from uuid import uuid4
+from django.core.validators import RegexValidator
 
 # Create your models here.
 
@@ -54,10 +55,19 @@ class Categories(models.Model):
         return self.category
 
 
-class Customer(models.Model):
+class Order(models.Model):
+    class Messengers(models.TextChoices):
+        alc = 'whatsapp', 'WhatsApp'
+        soft = 'telegram', 'Telegram'
+
+
+    timestamp = models.DateTimeField(auto_now_add=True)
     email = models.EmailField(max_length=254)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    purchase = models.ForeignKey(Toy, on_delete=models.CASCADE, related_name='purchases', null=True)
-    order = models.TextField(max_length=500, null=True)
+    customer_name = models.CharField(max_length=100)
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # Validators should be a list
+    preferable_messenger = models.CharField(max_length=10, choices=Messengers.choices)
+    purchase_exist = models.ForeignKey(Toy, on_delete=models.CASCADE, related_name='purchases', null=True)
+    order_new = models.TextField(max_length=500, null=True)
     comment = models.TextField(max_length=500, null=True)
+    closed = models.BooleanField(default=False)

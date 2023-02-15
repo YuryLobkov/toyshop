@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView
 """
 PROJECT IMPORTS
 """
-from .models import Toy, Customer
+from .models import Toy
 from .forms import OrderForm, PurchaseForm
 
 # Create your views here.

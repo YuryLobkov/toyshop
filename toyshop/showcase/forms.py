@@ -1,19 +1,25 @@
 from django import forms
-from .models import Customer
+from .models import Order
 
 
 class PurchaseForm(forms.ModelForm):
-    model = Customer
-    fields = ['email',
-              'first_name',
-              'last_name',
-              'purchase']
+    model = Order
+    fields = [
+        'email',
+        'customer_name',
+        'phone_number',
+        'preferable_messenger',
+        'order_new',
+        'comment',
+    ]
 
 
 class OrderForm(forms.ModelForm):
-    model = Customer
-    fields = ['email',
-              'first_name',
-              'last_name',
-              'order',
-              'comment']
+    model = Order
+    fields = [
+        'email',
+        'customer_name',
+        'phone_number',
+        'preferable_messenger',
+        'comment',
+    ]
