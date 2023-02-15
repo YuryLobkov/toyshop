@@ -24,6 +24,7 @@ def purchase_page(request):
     form = PurchaseForm()
     return render(request, 'showcase/purchase_page.html', {'form':form})
 
+
 def order_page(request):
     form = OrderForm()
     return render(request, 'showcase/order_page.html', {'form':form})

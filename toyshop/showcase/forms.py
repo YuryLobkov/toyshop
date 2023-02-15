@@ -1,5 +1,6 @@
-from django.forms import forms
+from django import forms
 from .models import Customer
+
 
 class PurchaseForm(forms.ModelForm):
     model = Customer

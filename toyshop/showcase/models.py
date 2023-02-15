@@ -54,7 +54,6 @@ class Categories(models.Model):
         return self.category
 
 
-
 class Customer(models.Model):
     email = models.EmailField(max_length=254)
     first_name = models.CharField(max_length=100)
