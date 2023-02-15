@@ -1,3 +1,4 @@
+{% load static %}
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -16,25 +17,26 @@
           <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
               <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-dark text-decoration-none">
-                <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+                <img class="bi d-block mx-auto mb-1" width="50" height="50" src="{% static 'bear-svgrepo-com.svg' %}" alt="">
+                ToyShop
               </a>
     
               <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
                 <li>
                   <a href="#" class="nav-link text-dark">
-                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
+                    <img class="bi d-block mx-auto mb-1" width="30" height="30" src="{% static 'home-shoppshtore-store-svgrepo-com.svg' %}" alt="">
                     Showcase
                   </a>
                 </li>
                 <li>
                   <a href="#" class="nav-link text-dark">
-                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
-                    Orders
+                    <img class="bi d-block mx-auto mb-1" width="30" height="30" src="{% static 'label-store-label-svgrepo-com.svg' %}" alt="">
+                    Order custom
                   </a>
                 </li>
                 <li>
                   <a href="#" class="nav-link text-dark">
-                    <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+                    <img class="bi d-block mx-auto mb-1" width="30" height="30" src="{% static '3-headphone-svgrepo-com.svg' %}" alt="">
                     Contact us
                   </a>
                 </li>
