@@ -33,7 +33,6 @@ class Toy(models.Model):
         return self.name
     
 
-
 class Materials(models.Model):
     material = models.CharField(max_length=30)
 
@@ -53,4 +52,13 @@ class Categories(models.Model):
 
     def __str__(self):
         return self.category
-    
+
+
+
+class Customer(models.Model):
+    email = models.EmailField(max_length=254)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    purchase = models.ForeignKey(Toy, on_delete=models.CASCADE, related_name='purchases', null=True)
+    order = models.TextField(max_length=500, null=True)
+    comment = models.TextField(max_length=500, null=True)
