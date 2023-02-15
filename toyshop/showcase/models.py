@@ -59,5 +59,5 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     purchase = models.ForeignKey(Toy, on_delete=models.CASCADE, related_name='purchases', null=True)
-    order = models.TextField(max_length=500, null=True)
-    comment = models.TextField(max_length=500, null=True)
+    order = models.ForeignKey(Toy, on_delete=models.CASCADE, related_name='orders', null=True)
+    custom_order = models.TextField(max_length=500, null=True)
