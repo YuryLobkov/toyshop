@@ -26,7 +26,7 @@ class Toy(models.Model):
     in_stock = models.BooleanField()
     quantity = models.PositiveIntegerField()
     category = models.ForeignKey("Categories", on_delete=models.CASCADE)
-    slug = models.SlugField(max_length=50, unique=True)
+    slug = models.SlugField('Toy slug', max_length=150, null=False, blank=False, unique=True)
     image = models.ImageField(null=True, upload_to=path_and_rename, blank=True, default='default.jpg')
 
     def __str__(self):
