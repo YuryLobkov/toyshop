@@ -3,6 +3,7 @@
 {% block content %}
 <div class="container d-lg-flex justify-content-center">
     {% for toy in toy_list %}
+    <a style="text-decoration: none; color: black;" target="_top" href="{% url 'toy-detail' slug=toy.slug %}">
         <div class="card mb-3 m-2" >
             <div class="row g-0 my-2 justify-content-center">
                 <div class="col-lg-6 d-flex align-items-center " style="width: 200px;">
@@ -21,15 +22,16 @@
                     <div class="card-body">
                         {% if toy.in_stock %}
                             <span>Avalible</span>
-                            <a href="#" class="card-link">Buy now</a>
+                            
                         {% else %}
                             <span>Out of stock</span>
-                            <a href="#" class="card-link">Order</a>
+                            
                         {% endif %}
                     </div>
                 </div>
             </div>
         </div>
+    </a>
     {% endfor %}
 </div>
 {% endblock content %}
