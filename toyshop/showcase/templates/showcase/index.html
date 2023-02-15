@@ -1,5 +1,29 @@
 {% extends 'showcase/base.html' %}
 {% block title %} Homepage {% endblock title %}
 {% block content %}
-    <h1>Test</h1>
+    <div class="container grid-wrapper">
+        {% for toy in toy_list %}
+        <div class="card m-3" style="width: 18rem;">
+            <img src="{{ toy.image.url }}" class="card-img-top" alt="{{toy.name}}">
+            <div class="card-body">
+              <h5 class="card-title">{{toy.name}}</h5>
+              <p class="card-text">{{toy.description}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Material: {{toy.material}}</li>
+              <li class="list-group-item">Size: {{toy.size}}</li>
+              <li class="list-group-item">Category: {{toy.category}}</li>
+            </ul>
+            <div class="card-body">
+                {% if toy.in_stock %}
+                    <span>Avalible</span>
+                    <a href="#" class="card-link">Buy now</a>
+                {% else %}
+                    <span>Out of stock</span>
+                    <a href="#" class="card-link">Order</a>
+                {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+    </div>
 {% endblock content %}
