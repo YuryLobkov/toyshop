@@ -1,5 +1,5 @@
 from django import forms
-from .models import Order
+from .models import Order, Feedback
 
 
 class PurchaseForm(forms.ModelForm):
@@ -56,3 +56,20 @@ class OrderForm(forms.ModelForm):
         self.fields['phone_number'].label = "Phone number"
         self.fields['preferable_messenger'].label = "How can we comunicate"
         self.fields['comment'].label = "Comments for your order"
+
+
+class ContactUsForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['name',
+                  'email',
+                  'subject',
+                  'message']
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            style_data = {
+                'class': 'form-control',
+            }
+            self.fields[str(field)].widget.attrs.update(style_data)

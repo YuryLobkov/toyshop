@@ -1,11 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView, DetailView, FormView, CreateView, View
+from django.views.generic import ListView, DetailView, FormView, CreateView
 from django.urls import reverse, reverse_lazy
 """
 PROJECT IMPORTS
 """
-from .models import Toy, Order
-from .forms import OrderForm, PurchaseForm
+from .models import Toy, Order, Feedback
+from .forms import OrderForm, PurchaseForm, ContactUsForm
 
 # Create your views here.
 
@@ -74,3 +74,22 @@ def purchase(request, slug):
 def purchase_thank_you(request, pk):
     order = get_object_or_404(Order, pk=pk)
     return render(request, 'showcase/thank_you.html', {'order':order})
+
+
+def contact_us(request):
+    form = ContactUsForm()
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            feedback = Feedback.objects.create(
+                name = request.POST.get('name'),
+                email = request.POST.get('email'),
+                subject = request.POST.get('subject'),
+                message = request.POST.get('message')
+            )
+            feedback.save()
+            return redirect('feedback-thank-you')
+    return render(request, 'showcase/contact_us.html', {'form':form})
+
+def contact_us_thank_you(request):
+    return render(request, 'showcase/contact_us_thank_you.html')
