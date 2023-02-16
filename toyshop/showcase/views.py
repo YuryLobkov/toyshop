@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, FormView, CreateView
+from django.urls import reverse
 """
 PROJECT IMPORTS
 """
-from .models import Toy
+from .models import Toy, Order
 from .forms import OrderForm, PurchaseForm
 
 # Create your views here.
@@ -17,12 +18,23 @@ class ShowcaseMainView(ListView):
 
 def toy_detail(request, slug):
     toy = get_object_or_404(Toy, slug=slug)
-    return render(request, 'showcase/toy_detail.html', {'toy':toy})
+    return render(request, 'showcase/toy_detail.html', {'toy':toy, 'self_slug': slug})
 
 
-def purchase_page(request):
-    form = PurchaseForm()
-    return render(request, 'showcase/purchase_page.html', {'form':form})
+# def purchase_page(request, slug):
+#     form = PurchaseForm()
+#     model = Order()
+#     return render(request, 'showcase/purchase_page.html', {'form':form})
+
+class PurchasePage(CreateView):
+    template_name = 'showcase/purchase_page.html'
+    form_class = PurchaseForm
+    model = Order
+
+# TODO send emails
+# TODO reverse url to thank u page
+    def get_success_url(self):
+        return reverse('main_view')
 
 
 def order_page(request):
