@@ -29,10 +29,15 @@ class PurchasePage(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         slug = self.kwargs['slug']
-        print(slug)
         context['purchasing_toy'] = Toy.objects.filter(slug = slug).all
-
         return context
+    
+    # Adding reference to purchasable toy in order table
+    def form_valid(self, form):
+        form.instance.purchase_exist = Toy.objects.filter(slug = self.kwargs['slug'])[0]
+        form.save()
+        return super().form_valid(form)
+    
 
 # TODO send emails
 # TODO reverse url to thank u page
