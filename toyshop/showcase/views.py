@@ -61,7 +61,8 @@ def purchase(request, slug, pk=None):
                 customer_name = request.POST.get('customer_name'),
                 phone_number = request.POST.get('phone_number'),
                 preferable_messenger = request.POST.get('preferable_messenger'),
-                comment = request.POST.get('comment')
+                comment = request.POST.get('comment'),
+                purchase_exist = purchased_toy
             )
             order.save()
             purchased_toy.in_stock = False
