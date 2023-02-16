@@ -1,0 +1,26 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToyShop - order confirmation</title>
+    <style type="text/css">
+        body, html {
+            text-align: center;
+            background-color: rgb(255, 239, 242);
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, {{user}}!</h1>
+    <h2>Thank you for your order on ToyShop</h2>
+    <h2>Your order number is {{order.id}}</h2>
+    <h3>{{order.purchase_exist}}</h3>
+    <p>Comment: {{order.comment}}</p>
+    <br><br><br>
+    <h3>ToyShop</h3>
+    <h3>{{ protocol }}://{{ domain }}</h3>
+
+</body>
+</html>
