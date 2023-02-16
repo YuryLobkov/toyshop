@@ -1,3 +1,12 @@
 .grid-wrapper {
     display: flex;
 }
+
+tr {
+    text-align: end;
+}
+
+#id_preferable_messenger {
+    text-align: start;
+    margin-left: 10px;
+}
