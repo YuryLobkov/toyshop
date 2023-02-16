@@ -10,17 +10,17 @@ class PurchaseForm(forms.ModelForm):
             'customer_name',
             'phone_number',
             'preferable_messenger',
-            'order_new',
             'comment',
         ]
 
 
 class OrderForm(forms.ModelForm):
-    model = Order
-    fields = [
-        'email',
-        'customer_name',
-        'phone_number',
-        'preferable_messenger',
-        'comment',
-    ]
+    class Meta:
+        model = Order
+        fields = [
+            'email',
+            'customer_name',
+            'phone_number',
+            'preferable_messenger',
+            'comment',
+        ]

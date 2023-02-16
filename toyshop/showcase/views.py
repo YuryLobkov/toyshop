@@ -21,11 +21,6 @@ def toy_detail(request, slug):
     return render(request, 'showcase/toy_detail.html', {'toy':toy, 'self_slug': slug})
 
 
-# def purchase_page(request, slug):
-#     form = PurchaseForm()
-#     model = Order()
-#     return render(request, 'showcase/purchase_page.html', {'form':form})
-
 class PurchasePage(CreateView):
     template_name = 'showcase/purchase_page.html'
     form_class = PurchaseForm
@@ -37,6 +32,10 @@ class PurchasePage(CreateView):
         return reverse('main_view')
 
 
-def order_page(request):
-    form = OrderForm()
-    return render(request, 'showcase/order_page.html', {'form':form})
+class OrderPage(CreateView):
+    template_name = 'showcase/order_page.html'
+    form_class = OrderForm
+    model = Order
+
+    def get_success_url(self):
+        return reverse('main_view')
