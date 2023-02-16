@@ -50,7 +50,7 @@ def order_confirmation_page(request):
 
 #===============================================================
 
-def purchase(request, slug, pk=None):
+def purchase(request, slug):
     purchased_toy = get_object_or_404(Toy, slug=slug)
     form = PurchaseForm()
     if request.method == 'POST':
@@ -65,7 +65,6 @@ def purchase(request, slug, pk=None):
                 purchase_exist = purchased_toy
             )
             order.save()
-            purchased_toy.in_stock = False
             return redirect(order.get_absolute_url())
             # return render(request, 'showcase/thank_you.html', {'order':order} )
     return render(request, 'showcase/purchase_page.html', {'form':form,
