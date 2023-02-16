@@ -25,6 +25,14 @@ class PurchasePage(CreateView):
     template_name = 'showcase/purchase_page.html'
     form_class = PurchaseForm
     model = Order
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        slug = self.kwargs['slug']
+        print(slug)
+        context['purchasing_toy'] = Toy.objects.filter(slug = slug).all
+
+        return context
 
 # TODO send emails
 # TODO reverse url to thank u page
