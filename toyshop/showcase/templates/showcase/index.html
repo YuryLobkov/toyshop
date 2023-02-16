@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container d-lg-flex justify-content-center">
     {% for toy in toy_list %}
-    <div class="card mb-3 m-2" >
+    <div class="card mb-3 m-2 col-lg-6" >
         <a style="text-decoration: none; color: black;" target="_top" href="{% url 'toy-detail' slug=toy.slug %}">
             <div class="row g-0 my-2 justify-content-center">
                 <div class="col-lg-6 d-flex align-items-center " style="width: 200px;">
@@ -12,7 +12,7 @@
                 <div class="col-lg-6">
                     <div class="card-body">
                         <h5 class="card-title">{{toy.name}}</h5>
-                        <p class="card-text">{{toy.description}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint fuga sequi consequuntur modi ex quas est amet, alias vitae delectus veniam cumque exercitationem, libero, rerum tempora reiciendis temporibus laudantium quasi?</p>
+                        <p class="card-text">{{toy.description}}</p>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">Material: {{toy.material}}</li>
