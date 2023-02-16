@@ -1,6 +1,8 @@
 from django.db import models
 import os
 from uuid import uuid4
+from django.core.validators import RegexValidator
+from django.urls import reverse
 
 # Create your models here.
 
@@ -33,7 +35,6 @@ class Toy(models.Model):
         return self.name
     
 
-
 class Materials(models.Model):
     material = models.CharField(max_length=30)
 
@@ -53,4 +54,31 @@ class Categories(models.Model):
 
     def __str__(self):
         return self.category
+
+
+class Order(models.Model):
+    class Messengers(models.TextChoices):
+        alc = 'whatsapp', 'WhatsApp'
+        soft = 'telegram', 'Telegram'
+
+
+    timestamp = models.DateTimeField(auto_now_add=True)
+    email = models.EmailField(max_length=254)
+    customer_name = models.CharField(max_length=100)
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # Validators should be a list
+    preferable_messenger = models.CharField(max_length=10, choices=Messengers.choices)
+    purchase_exist = models.ForeignKey(Toy, on_delete=models.CASCADE, related_name='purchases', null=True)
+    order_new = models.TextField(max_length=500, null=True)
+    comment = models.TextField(max_length=500, null=True)
+    closed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.customer_name} - {self.purchase_exist}'.replace('None', 'Custom Order')
+    
+    def get_absolute_url(self):
+        kwargs = {
+            'pk': self.pk
+        }
+        return reverse('thank-you', kwargs=kwargs)
     

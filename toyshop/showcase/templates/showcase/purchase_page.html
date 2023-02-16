@@ -1,0 +1,38 @@
+{% extends 'showcase/base.html' %}
+{% block title %} Buy {{purchasing_toy.0.name}} {% endblock title %}
+
+{% block content %}
+<h1 class="text-dark text-center">Purchase page</h1>
+<div class="card mb-3 m-2" >
+    <div class="row g-0 my-2 justify-content-center">
+        <div class="col-lg-6 d-flex align-items-center " style="width: 200px;">
+            <img src="{{purchased_toy.image.url}}" class="card-img-top" alt="{{purchased_toy.name}}">
+        </div>
+        <div class="col-lg-6">
+            <div class="card-body">
+                <h5 class="card-title">{{purchased_toy.name}}</h5>
+                <p class="card-text">{{purchased_toy.description|truncatewords:10}}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Material: {{purchased_toy.material}}</li>
+                <li class="list-group-item">Size: {{purchased_toy.size}}</li>
+                <li class="list-group-item">Category: {{purchased_toy.category}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <div class="form-group">
+            <table class="mx-auto">
+                {{ form.as_table}}
+            </table>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <input class="btn btn-success btn-lg m-3" type="submit" value="Confirm">
+            </div>
+        </div>   
+    </form> 
+    
+</div>
+{% endblock content %}
