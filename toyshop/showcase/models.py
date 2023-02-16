@@ -2,6 +2,7 @@ from django.db import models
 import os
 from uuid import uuid4
 from django.core.validators import RegexValidator
+from django.urls import reverse
 
 # Create your models here.
 
@@ -74,4 +75,10 @@ class Order(models.Model):
 
     def __str__(self):
         return f'{self.customer_name} - {self.purchase_exist}'.replace('None', 'Custom Order')
+    
+    def get_absolute_url(self):
+        kwargs = {
+            'pk': self.pk
+        }
+        return reverse('thank-you', kwargs=kwargs)
     

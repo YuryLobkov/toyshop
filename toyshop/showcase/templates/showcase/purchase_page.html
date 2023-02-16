@@ -6,17 +6,17 @@
 <div class="card mb-3 m-2" >
     <div class="row g-0 my-2 justify-content-center">
         <div class="col-lg-6 d-flex align-items-center " style="width: 200px;">
-            <img src="{{purchasing_toy.0.image.url}}" class="card-img-top" alt="{{purchasing_toy.0.name}}">
+            <img src="{{purchased_toy.image.url}}" class="card-img-top" alt="{{purchased_toy.name}}">
         </div>
         <div class="col-lg-6">
             <div class="card-body">
-                <h5 class="card-title">{{purchasing_toy.0.name}}</h5>
-                <p class="card-text">{{purchasing_toy.0.description|truncatewords:10}}</p>
+                <h5 class="card-title">{{purchased_toy.name}}</h5>
+                <p class="card-text">{{purchased_toy.description|truncatewords:10}}</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Material: {{purchasing_toy.0.material}}</li>
-                <li class="list-group-item">Size: {{purchasing_toy.0.size}}</li>
-                <li class="list-group-item">Category: {{purchasing_toy.0.category}}</li>
+                <li class="list-group-item">Material: {{purchased_toy.material}}</li>
+                <li class="list-group-item">Size: {{purchased_toy.size}}</li>
+                <li class="list-group-item">Category: {{purchased_toy.category}}</li>
             </ul>
         </div>
     </div>

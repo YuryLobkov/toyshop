@@ -17,7 +17,7 @@
                 {% if toy.in_stock %}
                     <p class="lead bg-success">Avalible</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <a href="{% url 'purchase' slug=self_slug %}" class="btn btn-success btn-lg px-4 me-md-2">Buy now</a>
+                        <a href="{% url 'purchase' slug=toy.slug %}" class="btn btn-success btn-lg px-4 me-md-2">Buy now</a>
                     </div>
                 {% else %}
                 <p class="lead bg-warning">Out of stock :(</p>
