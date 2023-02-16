@@ -6,5 +6,6 @@ urlpatterns = [
     path('', ShowcaseMainView.as_view(), name='main_view'),
     path('<slug>', views.toy_detail, name='toy-detail'),
     path('purchase/<slug>', views.PurchasePage.as_view(), name='purchase'),
-    path('order/', views.OrderPage.as_view(), name='order')
+    path('order/', views.OrderPage.as_view(), name='order'),
+    path('thank-you/', views.order_confirmation_page, name='thank-you'),
 ]
