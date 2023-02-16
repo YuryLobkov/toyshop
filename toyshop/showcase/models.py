@@ -71,3 +71,7 @@ class Order(models.Model):
     order_new = models.TextField(max_length=500, null=True)
     comment = models.TextField(max_length=500, null=True)
     closed = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f'{self.customer_name} - {self.purchase_exist}'.replace('None', 'Custom Order')
+    
