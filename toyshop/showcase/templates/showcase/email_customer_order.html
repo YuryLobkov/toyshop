@@ -15,8 +15,13 @@
 <body>
     <h1>Hello, {{user}}!</h1>
     <h2>Thank you for your order on ToyShop</h2>
-    <h2>Your order number is {{order.id}}</h2>
-    <h3>{{order.purchase_exist}}</h3>
+    <h2>Your order number #{{order.id}}</h2>
+    <h3>
+        {% if order.purchase_exist %}
+        <p>You ordered: {{order.purchase_exist}} {{order.purchase_exist.size}} {{order.purchase_exist.material}} {{order.purchase_exist.category}}</p>
+        {% endif %}
+        
+    </h3>
     <p>Comment: {{order.comment}}</p>
     <br><br><br>
     <h3>ToyShop</h3>

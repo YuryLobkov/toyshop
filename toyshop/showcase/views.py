@@ -6,6 +6,7 @@ PROJECT IMPORTS
 """
 from .models import Toy, Order
 from .forms import OrderForm, PurchaseForm
+from .email_sender import email_customer_order
 
 # Create your views here.
 
@@ -65,6 +66,7 @@ def purchase(request, slug):
                 purchase_exist = purchased_toy
             )
             order.save()
+            email_customer_order(request, order.customer_name, order.email, order)
             return redirect(order.get_absolute_url())
             # return render(request, 'showcase/thank_you.html', {'order':order} )
     return render(request, 'showcase/purchase_page.html', {'form':form,
