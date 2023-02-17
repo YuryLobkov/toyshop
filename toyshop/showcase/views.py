@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, FormView, CreateView, View
 from django.urls import reverse, reverse_lazy
-import asyncio
+import asyncio, time
 from asgiref.sync import sync_to_async
 
 """
@@ -54,9 +54,11 @@ async def purchase(request, slug):
                 purchase_exist = purchased_toy
             )
             await sync_to_async(order.save)()
+            start_time = time.time()
             task1 = asyncio.ensure_future(email_customer_order(request, order.customer_name, order.email, order))
             task2 = asyncio.ensure_future(email_admin_notification(request, order.customer_name, order))
             await asyncio.wait([task1, task2])
+            print('delay due to mail sending: ', time.time()-start_time) # 9,79 seconds
             return redirect(order.get_absolute_url())
             # return render(request, 'showcase/thank_you.html', {'order':order} )
     return await sync_to_async(render)(request, 'showcase/purchase_page.html', {'form':form,
