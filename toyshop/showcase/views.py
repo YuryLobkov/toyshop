@@ -29,24 +29,8 @@ class OrderPage(CreateView):
     model = Order
 
     def get_success_url(self):
-        return reverse('thank-you')#, kwargs={'order_id':self.object.id})
-        # return reverse('thank-you', kwargs={'order_id':self.object.id})
-    
-# class OrderConfirmationPage(View):
-#     template_name = 'showcase/thank_you.html'
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["order_id"] = kwargs.object.id
-#         return context
-    
-
-
-def order_confirmation_page(request):
-    # order_id = request.POST.get('post-id')
-    order_id = Order.objects.get_queryset().values('id').last()
-    # order_id = 5
-    return render(request, 'showcase/thank_you.html', {'order_id':order_id})
+        email_customer_order(self.request, self.object.customer_name, self.object.email, self.object)
+        return reverse('thank-you', kwargs={'pk':self.object.id})
 
 
 #===============================================================
