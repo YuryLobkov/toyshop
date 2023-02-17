@@ -6,7 +6,7 @@ PROJECT IMPORTS
 """
 from .models import Toy, Order
 from .forms import OrderForm, PurchaseForm
-from .email_sender import email_customer_order
+from .email_sender import email_customer_order, email_admin_notification
 
 # Create your views here.
 
@@ -30,6 +30,7 @@ class OrderPage(CreateView):
 
     def get_success_url(self):
         email_customer_order(self.request, self.object.customer_name, self.object.email, self.object)
+        email_admin_notification(self.request, self.object.customer_name, self.object)
         return reverse('thank-you', kwargs={'pk':self.object.id})
 
 
@@ -51,6 +52,7 @@ def purchase(request, slug):
             )
             order.save()
             email_customer_order(request, order.customer_name, order.email, order)
+            email_admin_notification(request, order.customer_name, order)
             return redirect(order.get_absolute_url())
             # return render(request, 'showcase/thank_you.html', {'order':order} )
     return render(request, 'showcase/purchase_page.html', {'form':form,

@@ -1,0 +1,38 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToyShop - order confirmation</title>
+    <style type="text/css">
+        body, html {
+            text-align: center;
+            background-color: rgb(255, 239, 242);
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{user}} made new order #{{order.id}}</h1>
+        <div>
+            {% if order.purchase_exist %}
+            <p>Order from showcase: {{order.purchase_exist}} {{order.purchase_exist.size}} {{order.purchase_exist.material}} {{order.purchase_exist.category}}</p>
+            <a href="{{ protocol }}://{{ domain }}/{{order.purchase_exist.slug}}"></a>
+            {% else %}
+            <p>Look message for details</p>
+            {% endif %}            
+        </div>
+        <p>User email: <a href="mailto:{{order.email}}">{{order.email}}</a> </p>
+        <p>Name: {{order.customer_name}}</p>
+        <p>Messenger: {{order.preferable_messenger}}</p>
+        <p>Comment: {{order.comment}}</p>
+        <br><br><br>
+        <h3>
+            <a href="{{ protocol }}://{{ domain }}/admin/showcase/order/">view in admin console</a>
+        </h3>
+    </div>
+<h5>If you get this message by mistake please ignore it</h5>
+
+</body>
+</html>
