@@ -13,7 +13,7 @@ def send(subject, message, recipients):
 
 
 def email_customer_order(request, user, to_email, order):
-    subject = 'Your ToyShop order' + str(order.id)
+    subject = 'Your ToyShop order #' + str(order.id)
     data_context = {
         'user': user,
         'order': order,

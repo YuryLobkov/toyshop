@@ -58,8 +58,14 @@ class Categories(models.Model):
 
 class Order(models.Model):
     class Messengers(models.TextChoices):
-        alc = 'whatsapp', 'WhatsApp'
-        soft = 'telegram', 'Telegram'
+        wa = 'whatsapp', 'WhatsApp'
+        tg = 'telegram', 'Telegram'
+        em = 'Email', 'e-mail'
+
+
+    class OrderTypes(models.TextChoices):
+        New = 'New toy order'
+        Exist = 'Toy from shop'
 
 
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -67,9 +73,9 @@ class Order(models.Model):
     customer_name = models.CharField(max_length=100)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$', message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True) # Validators should be a list
-    preferable_messenger = models.CharField(max_length=10, choices=Messengers.choices)
+    preferable_messenger = models.CharField(max_length=10, choices=Messengers.choices, null=False, default='em')
     purchase_exist = models.ForeignKey(Toy, on_delete=models.CASCADE, related_name='purchases', null=True)
-    order_new = models.TextField(max_length=500, null=True)
+    order_type = models.CharField(max_length=30, choices=OrderTypes.choices, null=True)
     comment = models.TextField(max_length=500, null=True)
     closed = models.BooleanField(default=False)
 
