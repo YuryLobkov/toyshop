@@ -3,6 +3,7 @@ from django.conf import settings
 from django.template.loader import get_template
 from django.contrib.sites.shortcuts import get_current_site
 from django.contrib.auth.models import User
+from asgiref.sync import sync_to_async
 
 
 def send(subject, message, recipients):
@@ -13,7 +14,7 @@ def send(subject, message, recipients):
     		recipient_list=recipients)
 	
 
-
+@sync_to_async
 def email_customer_order(request, user, to_email, order):
     subject = 'Your ToyShop order #' + str(order.id)
     data_context = {
@@ -26,8 +27,9 @@ def email_customer_order(request, user, to_email, order):
     email = EmailMessage(subject, message, to=[to_email])
     email.content_subtype = 'html'
     email.send()
+    print('conf message sent')
 
-
+@sync_to_async
 def email_admin_notification(request, user, order):
     staff_users_mail_qeryset = User.objects.filter(is_staff = 1, is_active = 1).all().values_list('email')
     staff_users_mail = []
@@ -44,3 +46,4 @@ def email_admin_notification(request, user, order):
     email = EmailMessage(subject, message, to=staff_users_mail)
     email.content_subtype = 'html'
     email.send()
+    print('notif message sent')

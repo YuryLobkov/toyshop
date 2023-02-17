@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, FormView, CreateView, View
 from django.urls import reverse, reverse_lazy
+import asyncio
+from asgiref.sync import sync_to_async
+
 """
 PROJECT IMPORTS
 """
@@ -36,13 +39,13 @@ class OrderPage(CreateView):
 
 #===============================================================
 
-def purchase(request, slug):
-    purchased_toy = get_object_or_404(Toy, slug=slug)
+async def purchase(request, slug):
+    purchased_toy = await sync_to_async(get_object_or_404)(Toy, slug=slug)
     form = PurchaseForm()
     if request.method == 'POST':
         form = PurchaseForm(request.POST)
         if form.is_valid():
-            order = Order.objects.create(
+            order = await sync_to_async(Order.objects.create)(
                 email = request.POST.get('email'),
                 customer_name = request.POST.get('customer_name'),
                 phone_number = request.POST.get('phone_number'),
@@ -50,12 +53,13 @@ def purchase(request, slug):
                 comment = request.POST.get('comment'),
                 purchase_exist = purchased_toy
             )
-            order.save()
-            email_customer_order(request, order.customer_name, order.email, order)
-            email_admin_notification(request, order.customer_name, order)
+            await sync_to_async(order.save)()
+            task1 = asyncio.ensure_future(email_customer_order(request, order.customer_name, order.email, order))
+            task2 = asyncio.ensure_future(email_admin_notification(request, order.customer_name, order))
+            await asyncio.wait([task1, task2])
             return redirect(order.get_absolute_url())
             # return render(request, 'showcase/thank_you.html', {'order':order} )
-    return render(request, 'showcase/purchase_page.html', {'form':form,
+    return await sync_to_async(render)(request, 'showcase/purchase_page.html', {'form':form,
                                                            'purchased_toy':purchased_toy})
 
 
