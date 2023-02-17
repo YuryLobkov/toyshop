@@ -8,4 +8,5 @@ urlpatterns = [
     path('purchase/<slug>', views.purchase, name='purchase'),
     path('order/', views.OrderPage.as_view(), name='order'),
     path('thank-you/<int:pk>', views.purchase_thank_you, name='thank-you'),
+    path('order-table/', views.orders_table, name='order-table'),
 ]

@@ -68,3 +68,10 @@ async def purchase(request, slug):
 def purchase_thank_you(request, pk):
     order = get_object_or_404(Order, pk=pk)
     return render(request, 'showcase/thank_you.html', {'order':order})
+
+
+def orders_table(request):
+    orders = Order.objects.all()
+
+    return render(request, 'showcase/orders_table.html', {'orders': orders})
+
