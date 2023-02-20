@@ -71,7 +71,13 @@ def purchase_thank_you(request, pk):
 
 
 def orders_table(request):
-    orders = Order.objects.all()
+    orders = Order.objects.filter(closed = False)
+    if request.method == 'POST':
+        order = get_object_or_404(Order, id=request.POST.get('id'))
+        order.closed = bool(request.POST.get('closed'))
+        order.save()
+        return redirect(reverse('order-table'))
+
 
     return render(request, 'showcase/orders_table.html', {'orders': orders})
 

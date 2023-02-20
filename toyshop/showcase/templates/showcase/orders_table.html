@@ -1,6 +1,7 @@
 {% extends 'showcase/base.html' %}
 {% block title %} Orders {% endblock title %}
 {% block content %}
+<h1 class="text-center">Active orders</h1>
     <div class="container text-center">
         <table class="table table-hover table-bordered table-sm align-middle table-responsive text-center">            
             <thead class="table-light">
@@ -14,6 +15,7 @@
                     <th class="text-center">Order type</th>
                     <th class="text-center">Ordered toy</th>
                     <th class="text-center">customer comment</th>
+                    <th class="text-center">close order</th>
                 </tr>
             </thead>
             {% for order in orders %}
@@ -46,6 +48,15 @@
                     </td>
                     <td  class="text-start">
                         {{order.comment}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore qui fuga, ratione hic, maiores earum vero unde obcaecati praesentium, aliquid accusamus repudiandae doloribus ipsa quas assumenda voluptatibus dolorum corporis voluptate!
+                    </td>
+                    <td class="text-start">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" value="True" name="closed">
+                            <input type='hidden' value='{{order.id}}' name='id'>
+                            <input type="submit" value="Close" class="btn btn-success">
+                        </form>
+                        
                     </td>
                 </tr>
             {% endfor %}
