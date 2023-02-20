@@ -80,7 +80,7 @@ class Order(models.Model):
     closed = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'{self.customer_name} - {self.purchase_exist}'.replace('None', 'Custom Order')
+        return f'#{self.id} - {self.customer_name} - {self.purchase_exist}'.replace('None', 'Custom Order')
     
     def get_absolute_url(self):
         kwargs = {
