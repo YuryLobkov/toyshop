@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView, FormView, CreateView, Vie
 from django.urls import reverse, reverse_lazy
 import asyncio, time
 from asgiref.sync import sync_to_async
+from django.contrib.auth.decorators import login_required
 
 """
 PROJECT IMPORTS
@@ -69,7 +70,7 @@ def purchase_thank_you(request, pk):
     order = get_object_or_404(Order, pk=pk)
     return render(request, 'showcase/thank_you.html', {'order':order})
 
-
+@login_required
 def orders_table(request):
     orders = Order.objects.filter(closed = False)
     if request.method == 'POST':
