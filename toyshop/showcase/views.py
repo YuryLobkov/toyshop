@@ -15,12 +15,12 @@ from .email_sender import email_customer_order, email_admin_notification
 # Create your views here.
 
 def homepage_view(request):
-    return render(request, 'showcase/homepage.html')
+    return render(request, 'showcase/index.html')
 
 
 class ShowcaseMainView(ListView):
     model = Toy
-    template_name = "showcase/index.html"
+    template_name = "showcase/showcase.html"
 
 
 def toy_detail(request, slug):
