@@ -11,19 +11,28 @@ tr {
     margin-left: 10px;
 }
 
-.carousel-img-right{
+.carousel-img-right {
     position: absolute;
     top: 10%;
     right: 25%;
 }
 
-.carousel-img-center{
+.carousel-img-center {
     position: absolute;
     top: 20%;
-    
+
 }
-.carousel-img-left{
+
+.carousel-img-left {
     position: absolute;
     top: 10%;
     left: 25%;
+}
+
+/* #cbeee1 */
+
+.custom-buttons {
+    background-color: #cbeee1 !important;
+    border-color:  #cbeee1 !important;
+    color: darkorchid !important;
 }
