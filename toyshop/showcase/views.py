@@ -23,7 +23,6 @@ def toy_detail(request, slug):
     toy = get_object_or_404(Toy, slug=slug)
     return render(request, 'showcase/toy_detail.html', {'toy':toy, 'self_slug': slug})
 
-# TODO send emails
 # TODO reverse url to thank u page
 
 
@@ -40,13 +39,46 @@ class OrderPage(CreateView):
 
 #===============================================================
 
-async def purchase(request, slug):
-    purchased_toy = await sync_to_async(get_object_or_404)(Toy, slug=slug)
+
+#ASYNC version of func
+
+# async def purchase(request, slug):
+#     purchased_toy = await sync_to_async(get_object_or_404)(Toy, slug=slug)
+#     form = PurchaseForm()
+#     if request.method == 'POST':
+#         form = PurchaseForm(request.POST)
+#         if form.is_valid():
+#             order = await sync_to_async(Order.objects.create)(
+#                 email = request.POST.get('email'),
+#                 customer_name = request.POST.get('customer_name'),
+#                 phone_number = request.POST.get('phone_number'),
+#                 preferable_messenger = request.POST.get('preferable_messenger'),
+#                 comment = request.POST.get('comment'),
+#                 purchase_exist = purchased_toy
+#             )
+#             if purchased_toy:
+#                 order.order_type = 'Toy from shop'
+#             else:
+#                 order.order_type = 'New toy order'
+#             await sync_to_async(order.save)()
+#             start_time = time.time()
+#             task1 = asyncio.ensure_future(email_customer_order(request, order.customer_name, order.email, order))
+#             task2 = asyncio.ensure_future(email_admin_notification(request, order.customer_name, order))
+#             await asyncio.wait([task1, task2])
+#             print('delay due to mail sending: ', time.time()-start_time) # 9,79 seconds
+#             return redirect(order.get_absolute_url())
+#     return await sync_to_async(render)(request, 'showcase/purchase_page.html', {'form':form,
+#                                                            'purchased_toy':purchased_toy})
+
+# SYNC vertion of func
+
+def purchase(request, slug):
+    purchased_toy = get_object_or_404(Toy, slug=slug)
     form = PurchaseForm()
     if request.method == 'POST':
         form = PurchaseForm(request.POST)
         if form.is_valid():
-            order = await sync_to_async(Order.objects.create)(
+            order = Order.objects.create(
                 email = request.POST.get('email'),
                 customer_name = request.POST.get('customer_name'),
                 phone_number = request.POST.get('phone_number'),
@@ -54,15 +86,17 @@ async def purchase(request, slug):
                 comment = request.POST.get('comment'),
                 purchase_exist = purchased_toy
             )
-            await sync_to_async(order.save)()
+            if purchased_toy:
+                order.order_type = 'Toy from shop'
+            else:
+                order.order_type = 'New toy order'
+            order.save()
             start_time = time.time()
-            task1 = asyncio.ensure_future(email_customer_order(request, order.customer_name, order.email, order))
-            task2 = asyncio.ensure_future(email_admin_notification(request, order.customer_name, order))
-            await asyncio.wait([task1, task2])
+            email_customer_order(request, order.customer_name, order.email, order)
+            email_admin_notification(request, order.customer_name, order)
             print('delay due to mail sending: ', time.time()-start_time) # 9,79 seconds
             return redirect(order.get_absolute_url())
-            # return render(request, 'showcase/thank_you.html', {'order':order} )
-    return await sync_to_async(render)(request, 'showcase/purchase_page.html', {'form':form,
+    return render(request, 'showcase/purchase_page.html', {'form':form,
                                                            'purchased_toy':purchased_toy})
 
 

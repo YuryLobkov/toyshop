@@ -14,7 +14,7 @@ def send(subject, message, recipients):
     		recipient_list=recipients)
 	
 
-@sync_to_async
+# @sync_to_async
 def email_customer_order(request, user, to_email, order):
     subject = 'Your ToyShop order #' + str(order.id)
     data_context = {
@@ -29,7 +29,7 @@ def email_customer_order(request, user, to_email, order):
     email.send()
     print('conf message sent')
 
-@sync_to_async
+# @sync_to_async
 def email_admin_notification(request, user, order):
     staff_users_mail_qeryset = User.objects.filter(is_staff = 1, is_active = 1).all().values_list('email')
     staff_users_mail = []
