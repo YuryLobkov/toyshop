@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, FormView, CreateView, View
 from django.urls import reverse, reverse_lazy
 import asyncio, time
@@ -30,6 +30,13 @@ class OrderPage(CreateView):
     template_name = 'showcase/order_page.html'
     form_class = OrderForm
     model = Order
+
+# add order type
+    def form_valid(self, form):
+        order = form.save(commit=False)
+        order.order_type = 'New toy order'
+        order.save()
+        return super(OrderPage, self).form_valid(form)
 
     def get_success_url(self):
         email_customer_order(self.request, self.object.customer_name, self.object.email, self.object)
