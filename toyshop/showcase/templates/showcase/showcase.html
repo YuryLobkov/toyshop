@@ -1,4 +1,5 @@
 {% extends 'showcase/base.html' %}
+{% load static %}
 {% block title %} Showcase {% endblock title %}
 {% block content %}
 <div class="filters container mt-3 pt-3 border rounded">
@@ -14,6 +15,7 @@
         
     </form>
 </div>
+{% if toy_list %}
 <div class="container d-lg-flex justify-content-center">
     {% for toy in toy_list %}
     <div class="card mb-3 m-2 col-lg-6" >
@@ -47,4 +49,11 @@
     </div>
     {% endfor %}
 </div>
+{% else %}
+<h2 class="text-center mt-5">No toys found</h2>
+<h4 class="text-center">Try to change filters</h4>
+<div class="container d-flex justify-content-center mt-2">
+    <img class="" src="{% static 'Teddy-Bear-Crying.png' %}" alt="no toys" width="200px" height="200px">
+</div>
+{% endif %}
 {% endblock content %}
