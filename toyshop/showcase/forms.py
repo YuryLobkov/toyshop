@@ -73,10 +73,15 @@ class FilterShowcaseForm(forms.ModelForm):
             'in_stock': forms.CheckboxInput(attrs={'class': 'form-check-input', 'role': 'switch'}),
         }
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, initials, *args, **kwargs):
         super(FilterShowcaseForm, self).__init__(*args, **kwargs)
         self.fields['material'].empty_label = "--All materials--"
         self.fields['size'].empty_label = "--All sizes--"
         self.fields['category'].empty_label = "--All categories--"
+        # TODO refactor below in one line using "update(zip)" https://stackoverflow.com/questions/54868711/python-set-list-elements-as-dict-values
+        self.initial['material'] = initials[0]
+        self.initial['size'] = initials[1]
+        self.initial['category'] = initials[2]
+        self.initial['in_stock'] = initials[3]        
         for field in self.fields.values():
             field.required = False

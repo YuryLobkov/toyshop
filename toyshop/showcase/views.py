@@ -52,8 +52,16 @@ class ShowcaseMainView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ShowcaseMainView, self).get_context_data(**kwargs)
-        context['filter_form'] = FilterShowcaseForm
-        context['filter'] = self.request.GET.get('filter', 'give-default-value')
+        filter_current_values = [0, 0, 0, False]
+        if self.request.GET.get:
+            filter_current_values = [
+                self.request.GET.get('material'),
+                self.request.GET.get('size'),
+                self.request.GET.get('category'),
+                self.request.GET.get('in_stock')
+            ]
+        context['filter_form'] = FilterShowcaseForm(initials=filter_current_values)
+        # context['material'] = self.request.GET.get('material')
         return context
 
 
