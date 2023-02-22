@@ -1,5 +1,5 @@
 from django import forms
-from .models import Order
+from .models import Order, Toy
 
 
 class PurchaseForm(forms.ModelForm):
@@ -56,3 +56,26 @@ class OrderForm(forms.ModelForm):
         self.fields['phone_number'].label = "Phone number"
         self.fields['preferable_messenger'].label = "How can we comunicate"
         self.fields['comment'].label = "Comments for your order"
+
+class FilterShowcaseForm(forms.ModelForm):
+    class Meta:
+        model = Toy
+        fields = [
+            'material',
+            'size',
+            'category',
+            'in_stock',
+        ]
+        widgets = {
+            'material': forms.Select(attrs={'class': 'form-control'}),
+            'size': forms.Select(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),
+            'in_stock': forms.CheckboxInput(attrs={'class': 'form-check-input', 'role': 'switch'}),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super(FilterShowcaseForm, self).__init__(*args, **kwargs)
+        self.fields['material'].empty_label = "--All materials--"
+        self.fields['size'].empty_label = "--All sizes--"
+        self.fields['category'].empty_label = "--All categories--"
+

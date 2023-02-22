@@ -1,6 +1,20 @@
 {% extends 'showcase/base.html' %}
 {% block title %} Showcase {% endblock title %}
 {% block content %}
+<div class="filters container mt-3 pt-3 border rounded">
+    <form action="">
+        {% csrf_token %}
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-3 my-2">{{filter_form.material}}</div>
+            <div class="col-lg-3 my-2">{{filter_form.size}}</div>
+            <div class="col-lg-3 my-2">{{filter_form.category}}</div>
+            <div class="col-sm-auto align-self-center my-2"><span class="form-check form-switch">{{filter_form.in_stock}} Avalible only</span>
+            </div>
+            <div class="col-sm-auto d-grid gap-2"><input type="submit" class="btn btn-primary" value="Filter"></div>
+        </div>
+        
+    </form>
+</div>
 <div class="container d-lg-flex justify-content-center">
     {% for toy in toy_list %}
     <div class="card mb-3 m-2 col-lg-6" >
