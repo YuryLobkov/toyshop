@@ -24,9 +24,26 @@ class ShowcaseMainView(ListView):
     model = Toy
     template_name = "showcase/showcase.html"
 
+    def get_queryset(self):
+        all_toys = Toy.objects.all()
+        filter_material = self.request.GET.get('material', all_toys.values_list('material'))
+        filter_size = self.request.GET.get('size', all_toys.values_list('size'))
+        filter_category = self.request.GET.get('category', all_toys.values_list('category'))
+        filter_in_stock_only = self.request.GET.get('in_stock', False)
+        new_context = Toy.objects.filter(
+            material__in=filter_material,
+            size__in=filter_size,
+            category__in=filter_category,
+        )
+        if filter_in_stock_only:
+            return new_context.filter(in_stock = True)
+        else:
+            return new_context
+
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
+        context = super(ShowcaseMainView, self).get_context_data(**kwargs)
         context['filter_form'] = FilterShowcaseForm
+        context['filter'] = self.request.GET.get('filter', 'give-default-value')
         return context
 
 
