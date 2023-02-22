@@ -78,4 +78,5 @@ class FilterShowcaseForm(forms.ModelForm):
         self.fields['material'].empty_label = "--All materials--"
         self.fields['size'].empty_label = "--All sizes--"
         self.fields['category'].empty_label = "--All categories--"
-
+        for field in self.fields.values():
+            field.required = False
