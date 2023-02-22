@@ -1,5 +1,5 @@
 body {
-    min-height: 90vh;
+    min-height: 110vh;
     margin: 0;
     position: relative;
 }
@@ -46,8 +46,7 @@ tr {
 
 .carousel-img-center {
     position: absolute;
-    top: 20%;
-
+    top: 30%;
 }
 
 .carousel-img-left {
@@ -56,10 +55,19 @@ tr {
     left: 25%;
 }
 
+.carousel-img-responsive{
+    max-width: 350px; 
+    max-height: 350px;
+    min-width: 40vh; 
+    min-height: 40vh;
+}
+
 /* #cbeee1 */
 
 .custom-buttons {
     background-color: #cbeee1 !important;
     border-color: #cbeee1 !important;
-    color: darkorchid !important;
+    color: rgb(0, 0, 0) !important;
+    font-weight: bolder !important;
+    border-radius: 0% !important;
 }
