@@ -21,11 +21,11 @@
                     </ul>
                     <div class="card-body">
                         {% if toy.in_stock %}
-                            <span>Avalible</span>
-                            
+                            <span>Avalible for</span>
+                            <span class="fw-bold fs-5">{{toy.price}} ₽</span>
                         {% else %}
                             <span>Out of stock</span>
-                            
+                            <span class="fw-light text-decoration-line-through">{{toy.price}} ₽</span>                            
                         {% endif %}
                     </div>
                 </div>
