@@ -1,0 +1,59 @@
+{% extends 'showcase/base.html' %}
+{% load static %}
+{% block title %} Showcase {% endblock title %}
+{% block content %}
+<div class="filters container mt-3 pt-3 border rounded">
+    <form method="get" action="{% url 'showcase_view' %}">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-3 my-2">{{filter_form.material}}</div>
+            <div class="col-lg-3 my-2">{{filter_form.size}}</div>
+            <div class="col-lg-3 my-2">{{filter_form.category}}</div>
+            <div class="col-sm-auto align-self-center my-2"><span class="form-check form-switch">{{filter_form.in_stock}} Avalible only</span>
+            </div>
+            <div class="col-sm-auto d-grid gap-2"><input type="submit" name="submit" class="btn btn-primary" value="Filter"></div>
+        </div>
+        
+    </form>
+</div>
+{% if toy_list %}
+<div class="container d-lg-flex justify-content-center">
+    {% for toy in toy_list %}
+    <div class="card mb-3 m-2 col-lg-6" >
+        <a style="text-decoration: none; color: black;" target="_top" href="{% url 'toy-detail' slug=toy.slug %}">
+            <div class="row g-0 my-2 justify-content-center">
+                <div class="col-lg-6 d-flex align-items-center " style="width: 200px;">
+                    <img src="{{toy.image.url}}" class="card-img-top" alt="{{toy.name}}">
+                </div>
+                <div class="col-lg-6">
+                    <div class="card-body">
+                        <h5 class="card-title">{{toy.name}}</h5>
+                        <p class="card-text">{{toy.description}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Material: {{toy.material}}</li>
+                        <li class="list-group-item">Size: {{toy.size}}</li>
+                        <li class="list-group-item">Category: {{toy.category}}</li>
+                    </ul>
+                    <div class="card-body">
+                        {% if toy.in_stock %}
+                            <span>Avalible for</span>
+                            <span class="fw-bold fs-5">{{toy.price}} ₽</span>
+                        {% else %}
+                            <span>Out of stock</span>
+                            <span class="fw-light text-decoration-line-through">{{toy.price}} ₽</span>                            
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<h2 class="text-center mt-5">No toys found</h2>
+<h4 class="text-center">Try to change filters</h4>
+<div class="container d-flex justify-content-center mt-2">
+    <img class="" src="{% static 'Teddy-Bear-Crying.png' %}" alt="no toys" width="200px" height="200px">
+</div>
+{% endif %}
+{% endblock content %}

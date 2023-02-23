@@ -1,3 +1,30 @@
+body {
+    min-height: 110vh;
+    margin: 0;
+    position: relative;
+}
+
+header {
+    min-height: 50px;
+}
+
+footer {
+    background: #cbeee1;
+}
+
+body::after {
+    content: '';
+    display: block;
+    min-height: 120px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 50px;
+}
+
 .grid-wrapper {
     display: flex;
 }
@@ -9,4 +36,38 @@ tr {
 #id_preferable_messenger {
     text-align: start;
     margin-left: 10px;
+}
+
+.carousel-img-right {
+    position: absolute;
+    top: 10%;
+    right: 25%;
+}
+
+.carousel-img-center {
+    position: absolute;
+    top: 30%;
+}
+
+.carousel-img-left {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+}
+
+.carousel-img-responsive{
+    max-width: 350px; 
+    max-height: 350px;
+    min-width: 40vh; 
+    min-height: 40vh;
+}
+
+/* #cbeee1 */
+
+.custom-buttons {
+    background-color: #cbeee1 !important;
+    border-color: #cbeee1 !important;
+    color: rgb(0, 0, 0) !important;
+    font-weight: bolder !important;
+    border-radius: 0% !important;
 }
