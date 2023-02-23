@@ -148,6 +148,12 @@ def purchase(request, slug):
             else:
                 order.order_type = 'New toy order'
             order.save()
+
+            purchased_toy.quantity = purchased_toy.quantity-1
+            if purchased_toy.quantity == 0:
+                purchased_toy.in_stock = False
+            purchased_toy.save()
+
             start_time = time.time()
             email_customer_order(
                 request, order.customer_name, order.email, order)
