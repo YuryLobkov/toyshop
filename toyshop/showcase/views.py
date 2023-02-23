@@ -11,7 +11,7 @@ PROJECT IMPORTS
 """
 from .models import Toy, Order, Feedback
 from .forms import OrderForm, PurchaseForm, ContactUsForm, FilterShowcaseForm
-from .email_sender import email_customer_order, email_admin_notification
+from .email_sender import *
 
 # Create your views here.
 
@@ -195,6 +195,7 @@ def contact_us(request):
                 message = request.POST.get('message')
             )
             feedback.save()
+            email_admin_feedback_notification(request, feedback)
             return redirect('feedback-thank-you')
     return render(request, 'showcase/contact_us.html', {'form':form})
 
