@@ -3,6 +3,8 @@ import os
 from uuid import uuid4
 from django.core.validators import RegexValidator
 from django.urls import reverse
+from django.utils.text import slugify
+from django.utils.crypto import get_random_string
 
 # Create your models here.
 
@@ -28,12 +30,20 @@ class Toy(models.Model):
     in_stock = models.BooleanField()
     quantity = models.PositiveIntegerField()
     category = models.ForeignKey("Categories", on_delete=models.CASCADE)
-    slug = models.SlugField('Toy slug', max_length=150, null=False, blank=False, unique=True)
+    slug = models.SlugField('Toy slug', max_length=150, null=False, blank=False, unique=True, editable=False)
     image = models.ImageField(null=True, upload_to=path_and_rename, blank=True, default='default.jpg')
 
     def __str__(self):
         return self.name
     
+    def save(self, *args, **kwargs):
+        if Toy.objects.filter(name=self.name).exists():
+            value = f'{self.name}_{get_random_string(length=4)}'
+            self.slug = slugify(value, allow_unicode=True)
+        else:
+            self.slug = slugify(self.name, allow_unicode=True)
+        super(Toy, self).save(*args, **kwargs)
+
 
 class Materials(models.Model):
     material = models.CharField(max_length=30)
