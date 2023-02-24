@@ -1,8 +1,9 @@
 {% extends 'showcase/base.html' %}
+{% load i18n %}
 {% block title %} Buy {{purchasing_toy.0.name}} {% endblock title %}
 
 {% block content %}
-<h1 class="text-dark text-center">Purchase page</h1>
+<h1 class="text-dark text-center">{% trans 'Purchase page' %}</h1>
 <div class="card mb-3 m-2" >
     <div class="row g-0 my-2 justify-content-center">
         <div class="col-lg-6 d-flex align-items-center " style="width: 200px;">
@@ -14,9 +15,9 @@
                 <p class="card-text">{{purchased_toy.description|truncatewords:10}}</p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Material: {{purchased_toy.material}}</li>
-                <li class="list-group-item">Size: {{purchased_toy.size}}</li>
-                <li class="list-group-item">Category: {{purchased_toy.category}}</li>
+                <li class="list-group-item">{% trans 'Material:' %} {{purchased_toy.material}}</li>
+                <li class="list-group-item">{% trans 'Size:' %} {{purchased_toy.size}}</li>
+                <li class="list-group-item">{% trans 'Category:' %} {{purchased_toy.category}}</li>
                 <li class="list-group-item fw-bolder">{{purchased_toy.price}} ₽</li>
             </ul>
         </div>
@@ -30,7 +31,7 @@
                 {{ form.as_table}}
             </table>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                <input class="btn btn-success btn-lg m-3" type="submit" value="Confirm">
+                <button class="btn btn-success btn-lg m-3" type="submit">{% trans 'Confirm' %}</button>
             </div>
         </div>   
     </form> 

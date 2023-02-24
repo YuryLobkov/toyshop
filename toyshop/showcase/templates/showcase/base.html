@@ -38,21 +38,21 @@
                             <a href="{% url 'showcase_view' %}" class="nav-link text-dark">
                                 <img class="bi d-block mx-auto mb-1" width="30" height="30"
                                     src="{% static 'home-shoppshtore-store-svgrepo-com.svg' %}" alt="">
-                                Showcase
+                                {% trans 'Showcase' %}
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'order' %}" class="nav-link text-dark">
                                 <img class="bi d-block mx-auto mb-1" width="30" height="30"
                                     src="{% static 'label-store-label-svgrepo-com.svg' %}" alt="">
-                                Order custom
+                                {% trans 'Order custom' %}
                             </a>
                         </li>
                         <li>
                             <a href="#" class="nav-link text-dark">
                                 <img class="bi d-block mx-auto mb-1" width="30" height="30"
                                     src="{% static '3-headphone-svgrepo-com.svg' %}" alt="">
-                                Contact us
+                                {% trans 'Contact us' %}
                             </a>
                         </li>
                         <li>
@@ -88,7 +88,7 @@
 <footer>
     <div class="row text-center mx-0">
         <div class="col-xl-3 mt-2 align-self-center">
-            <p class="fw-bolder">Contact us in social media:</p>
+            <p class="fw-bolder">{% trans 'Contact us in social media:' %}</p>
         </div>
         <div class="col-xl-6"></div>
         <div class="col-xl-3">
@@ -100,7 +100,7 @@
         </div>
         <div class="row text-center mx-0">
             <div class="col-lg-12">
-                <p> Copyright &copy; <script>document.write(new Date().getFullYear())</script> TayaToys. All Rights Reserved</p>
+                <p> Copyright &copy; <script>document.write(new Date().getFullYear())</script> TayaToys. {% trans 'All Rights Reserved' %}</p>
             </div>
         </div>
     </div>

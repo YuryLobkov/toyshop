@@ -1,5 +1,6 @@
 {% extends 'showcase/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %} Showcase {% endblock title %}
 {% block content %}
 <div class="filters container mt-3 pt-3 border rounded">
@@ -8,9 +9,11 @@
             <div class="col-lg-3 my-2">{{filter_form.material}}</div>
             <div class="col-lg-3 my-2">{{filter_form.size}}</div>
             <div class="col-lg-3 my-2">{{filter_form.category}}</div>
-            <div class="col-sm-auto align-self-center my-2"><span class="form-check form-switch">{{filter_form.in_stock}} Avalible only</span>
+            <div class="col-sm-auto align-self-center my-2"><span class="form-check form-switch">{{filter_form.in_stock}} {% trans 'Avalible only' %}</span>
             </div>
-            <div class="col-sm-auto d-grid gap-2"><input type="submit" name="submit" class="btn btn-primary" value="Filter"></div>
+            <div class="col-sm-auto d-grid gap-2">
+                <button class="btn btn-primary" type="submit">{% trans 'Filter' %}</button>
+            </div>
         </div>
         
     </form>
@@ -30,16 +33,16 @@
                         <p class="card-text">{{toy.description}}</p>
                     </div>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Material: {{toy.material}}</li>
-                        <li class="list-group-item">Size: {{toy.size}}</li>
-                        <li class="list-group-item">Category: {{toy.category}}</li>
+                        <li class="list-group-item">{% trans 'Material:' %} {{toy.material}}</li>
+                        <li class="list-group-item">{% trans 'Size:' %} {{toy.size}}</li>
+                        <li class="list-group-item">{% trans 'Category:' %} {{toy.category}}</li>
                     </ul>
                     <div class="card-body">
                         {% if toy.in_stock %}
-                            <span>Avalible for</span>
+                            <span>{% trans 'Avalible for' %}</span>
                             <span class="fw-bold fs-5">{{toy.price}} ₽</span>
                         {% else %}
-                            <span>Out of stock</span>
+                            <span>{% trans 'Out of stock' %}</span>
                             <span class="fw-light text-decoration-line-through">{{toy.price}} ₽</span>                            
                         {% endif %}
                     </div>
@@ -50,8 +53,8 @@
     {% endfor %}
 </div>
 {% else %}
-<h2 class="text-center mt-5">No toys found</h2>
-<h4 class="text-center">Try to change filters</h4>
+<h2 class="text-center mt-5">{% trans 'No toys found' %}</h2>
+<h4 class="text-center">{% trans 'Try to change filters' %}</h4>
 <div class="container d-flex justify-content-center mt-2">
     <img class="" src="{% static 'Teddy-Bear-Crying.png' %}" alt="no toys" width="200px" height="200px">
 </div>

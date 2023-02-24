@@ -1,16 +1,19 @@
+
 {% extends 'showcase/base.html' %}
+{% load i18n %}
+
 {% block title %} Order {{toy.name}} {% endblock title %}
 
 {% block content %}
 <div class="container">
-    <h1 class="text-dark text-center">Order custom teddy toy!</h1>
+    <h1 class="text-dark text-center">{% trans 'Order custom teddy toy!' %}</h1>
     <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
         <div class="form-group">
             <table class="mx-auto">
                 {{ form.as_table}}
             </table>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                <input class="btn btn-success btn-lg m-3" type="submit" value="Confirm">
+                <button class="btn btn-success btn-lg m-3" type="submit">{% trans 'Confirm' %}</button>
             </div>
         </div>   
     </form> 
