@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-24 22:24+0500\n"
+"POT-Creation-Date: 2023-02-25 11:52+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,7 +86,7 @@ msgid "Order custom"
 msgstr "Индивидуальный заказ"
 
 #: .\showcase\templates\showcase\base.html:55
-#: .\showcase\templates\showcase\index.html:63
+#: .\showcase\templates\showcase\index.html:64
 msgid "Contact us"
 msgstr "Связаться с нами"
 
@@ -94,53 +94,52 @@ msgstr "Связаться с нами"
 msgid "Contact us in social media:"
 msgstr "Ищите нас в социальных сетях:"
 
-
 #: .\showcase\templates\showcase\base.html:103
 msgid "All Rights Reserved"
 msgstr "Все права защищены."
 
 # ===============CAROUSEL===============
-#: .\showcase\templates\showcase\index.html:25
+#: .\showcase\templates\showcase\index.html:26
 msgid "Example headline."
 msgstr "1 слайд"
 
-#: .\showcase\templates\showcase\index.html:26
+#: .\showcase\templates\showcase\index.html:27
 msgid ""
 "Some representative placeholder content for the first slide of the carousel."
 msgstr "Контент 1 слайда"
 
 # ===============INDEX HTML TRANSLATION===============
-#: .\showcase\templates\showcase\index.html:27
+#: .\showcase\templates\showcase\index.html:28
 msgid "Works showcase"
 msgstr "Витрина"
 
-#: .\showcase\templates\showcase\index.html:43
+#: .\showcase\templates\showcase\index.html:44
 msgid "Another example headline."
 msgstr "2 слайд"
 
-#: .\showcase\templates\showcase\index.html:44
+#: .\showcase\templates\showcase\index.html:45
 msgid ""
 "Some representative placeholder content for the second slide of the carousel."
 msgstr "Контент 2 слайда"
 
-#: .\showcase\templates\showcase\index.html:45
+#: .\showcase\templates\showcase\index.html:46
 msgid "Order custom toy"
 msgstr "Индивидуальный заказ"
 
-#: .\showcase\templates\showcase\index.html:61
+#: .\showcase\templates\showcase\index.html:62
 msgid "One more for good measure."
 msgstr "3 слайд"
 
-#: .\showcase\templates\showcase\index.html:62
+#: .\showcase\templates\showcase\index.html:63
 msgid ""
 "Some representative placeholder content for the third slide of this carousel."
 msgstr "Контент 3 слайда"
 
-#: .\showcase\templates\showcase\index.html:70
+#: .\showcase\templates\showcase\index.html:71
 msgid "Previous"
 msgstr "Предыдущий"
 
-#: .\showcase\templates\showcase\index.html:74
+#: .\showcase\templates\showcase\index.html:75
 msgid "Next"
 msgstr "Следующий"
 

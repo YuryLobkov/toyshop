@@ -6,3 +6,6 @@ from .models import *
 class ToyTranslationOptions(TranslationOptions):
     fields = ('name', 'description', 'size', 'material', 'price', 'category')
 
+@register(Materials)
+class MaterialsTranslationOptions(TranslationOptions):
+    fields = ('material')

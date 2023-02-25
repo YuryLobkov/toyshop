@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import *
 from modeltranslation.admin import TranslationAdmin
+from django import forms
 
 # Register your models here.
 
@@ -17,7 +18,7 @@ class ToyAdmin(TranslationAdmin):
 class MaterialsAdmin(TranslationAdmin):
     class Meta:
         model = Materials
-        fields = '__all__'
+        fields = 'material'
 
 
 @admin.register(Sizes)
@@ -31,7 +32,3 @@ class SizesAdmin(TranslationAdmin):
 class CategoriesAdmin(TranslationAdmin):
     class Meta:
         model = Categories
-        fields = '__all__'
-
-
-admin.site.register(Order)
