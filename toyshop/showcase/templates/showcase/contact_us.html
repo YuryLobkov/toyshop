@@ -1,10 +1,11 @@
 {% extends 'showcase/base.html' %}
+{% load i18n %}
 {% block title %} Contact us {% endblock title %}
 
 {% block content %}
 
 <div class="container">
-    <h1 class="text-dark text-center">Feel free to contact us!</h1>
+    <h1 class="text-dark text-center">{% trans 'Feel free to contact us!' %}</h1>
     <form action="" method="post">
         {% csrf_token %}
         <div class="form-group">
@@ -12,7 +13,7 @@
                 {{form.as_table}}
             </table>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                <button id='submit-btn' class="btn btn-success btn-lg m-3" type="submit">Send</button>
+                <button id='submit-btn' class="btn btn-success btn-lg m-3" type="submit">{% trans 'Send' %}</button>
             </div>
         </div>  
     </form>

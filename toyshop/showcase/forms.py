@@ -98,6 +98,10 @@ class ContactUsForm(forms.ModelForm):
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields['name'].label = _('Name')
+        self.fields['email'].label = _('Email')
+        self.fields['subject'].label = _('Subject')
+        self.fields['message'].label = _('Message')
         for field in self.fields:
             style_data = {
                 'class': 'form-control',

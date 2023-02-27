@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-27 12:48+0500\n"
+"POT-Creation-Date: 2023-02-27 20:18+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -76,6 +76,23 @@ msgstr "Все размеры"
 msgid "--All categories--"
 msgstr "Все категории"
 
+# ===============CONTACT US===============
+#: .\showcase\forms.py:101
+msgid "Name"
+msgstr "Имя"
+
+#: .\showcase\forms.py:102
+msgid "Email"
+msgstr "Почта"
+
+#: .\showcase\forms.py:103
+msgid "Subject"
+msgstr "Тема"
+
+#: .\showcase\forms.py:104
+msgid "Message"
+msgstr "Сообщение"
+
 # ===============BASE HTML TRANSLATION===============
 #: .\showcase\templates\showcase\base.html:41
 msgid "Showcase"
@@ -90,13 +107,21 @@ msgstr "Индивидуальный заказ"
 msgid "Contact us"
 msgstr "Связаться с нами"
 
-#: .\showcase\templates\showcase\base.html:91
+#: .\showcase\templates\showcase\base.html:89
 msgid "Contact us in social media:"
 msgstr "Ищите нас в социальных сетях:"
 
-#: .\showcase\templates\showcase\base.html:103
+#: .\showcase\templates\showcase\base.html:101
 msgid "All Rights Reserved"
 msgstr "Все права защищены."
+
+#: .\showcase\templates\showcase\contact_us.html:8
+msgid "Feel free to contact us!"
+msgstr "Напишите нам письмо!"
+
+#: .\showcase\templates\showcase\contact_us.html:16
+msgid "Send"
+msgstr "Отправить"
 
 # ===============CAROUSEL===============
 #: .\showcase\templates\showcase\index.html:26
