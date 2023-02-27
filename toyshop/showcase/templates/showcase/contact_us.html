@@ -12,10 +12,12 @@
                 {{form.as_table}}
             </table>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                <button class="btn btn-success btn-lg m-3" type="submit">Send</button>
+                <button id='submit-btn' class="btn btn-success btn-lg m-3" type="submit">Send</button>
             </div>
         </div>  
     </form>
 </div>
+
+{% include 'showcase/includes/messages.html' %}
 
 {% endblock content %}
