@@ -17,12 +17,6 @@
         </div>
     </form>
 </div>
-{% get_current_language as current_language %}
-{% if current_language == 'ru' %}
-   asd
-{% else %}
-    dsa
-{% endif %}
 
 {% if toy_list %}
 <div class="container d-lg-flex justify-content-center">
@@ -46,7 +40,7 @@
                     <div class="card-body">
                         {% if toy.in_stock %}
                             <span>{% trans 'Avalible for' %}</span>
-                            <span class="fw-bold fs-5">{{toy.price}} ₽</span>
+                            <span class="fw-bold fs-5">{{toy.price_ru}}₽ / {{toy.price_en}}$ </span>
                         {% else %}
                             <span>{% trans 'Out of stock' %}</span>
                             <span class="fw-light text-decoration-line-through">{{toy.price}} ₽</span>                            

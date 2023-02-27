@@ -25,30 +25,30 @@ class ShowcaseMainView(ListView):
     template_name = "showcase/showcase.html"
 
     # TODO refactor it to DRY
-    # def get_queryset(self):
-    #     all_toys = Toy.objects.all()
-    #     if self.request.GET.get('material'):
-    #         filter_material = self.request.GET.get('material', all_toys.values_list('material'))
-    #     else:
-    #         filter_material = all_toys.values_list('material')
-    #     if self.request.GET.get('size'):
-    #         filter_size = self.request.GET.get('size', all_toys.values_list('size'))
-    #     else:
-    #         filter_size = all_toys.values_list('size')
-    #     if self.request.GET.get('category'):
-    #         filter_category = self.request.GET.get('category', all_toys.values_list('category'))
-    #     else:
-    #         filter_category = all_toys.values_list('category')
-    #     filter_in_stock_only = self.request.GET.get('in_stock', False)
-    #     new_context = Toy.objects.filter(
-    #         material__in=filter_material,
-    #         size__in=filter_size,
-    #         category__in=filter_category,
-    #     )
-    #     if filter_in_stock_only:
-    #         return new_context.filter(in_stock = True)
-    #     else:
-    #         return new_context
+    def get_queryset(self):
+        all_toys = Toy.objects.all()
+        if self.request.GET.get('material'):
+            filter_material = self.request.GET.get('material', all_toys.values_list('material'))
+        else:
+            filter_material = all_toys.values_list('material')
+        if self.request.GET.get('size'):
+            filter_size = self.request.GET.get('size', all_toys.values_list('size'))
+        else:
+            filter_size = all_toys.values_list('size')
+        if self.request.GET.get('category'):
+            filter_category = self.request.GET.get('category', all_toys.values_list('category'))
+        else:
+            filter_category = all_toys.values_list('category')
+        filter_in_stock_only = self.request.GET.get('in_stock', False)
+        new_context = Toy.objects.filter(
+            material__in=filter_material,
+            size__in=filter_size,
+            category__in=filter_category,
+        )
+        if filter_in_stock_only:
+            return new_context.filter(in_stock = True)
+        else:
+            return new_context
 
     def get_context_data(self, **kwargs):
         context = super(ShowcaseMainView, self).get_context_data(**kwargs)
