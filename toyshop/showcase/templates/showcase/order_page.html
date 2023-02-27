@@ -10,10 +10,13 @@
                 {{ form.as_table}}
             </table>
             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                <input class="btn btn-success btn-lg m-3" type="submit" value="Confirm">
+                <input id='submit-btn' class="btn btn-success btn-lg m-3" type="submit" value="Confirm">
             </div>
         </div>   
     </form> 
     
 </div>
+
+{% include 'showcase/includes/messages.html' %}
+
 {% endblock content %}
