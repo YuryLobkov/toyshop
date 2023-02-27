@@ -1,0 +1,23 @@
+{% extends 'showcase/base.html' %}
+{% block title %} Contact us {% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="text-dark text-center">Feel free to contact us!</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <table class="mx-auto">
+                {{form.as_table}}
+            </table>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                <button id='submit-btn' class="btn btn-success btn-lg m-3" type="submit">Send</button>
+            </div>
+        </div>  
+    </form>
+</div>
+
+{% include 'showcase/includes/messages.html' %}
+
+{% endblock content %}

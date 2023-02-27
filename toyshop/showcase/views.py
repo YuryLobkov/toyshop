@@ -9,9 +9,9 @@ from django.contrib.auth.decorators import login_required
 """
 PROJECT IMPORTS
 """
-from .models import Toy, Order
-from .forms import OrderForm, PurchaseForm, FilterShowcaseForm
-from .email_sender import email_customer_order, email_admin_notification
+from .models import Toy, Order, Feedback
+from .forms import OrderForm, PurchaseForm, ContactUsForm, FilterShowcaseForm
+from .email_sender import *
 
 # Create your views here.
 
@@ -180,3 +180,24 @@ def orders_table(request):
         return redirect(reverse('order-table'))
 
     return render(request, 'showcase/orders_table.html', {'orders': orders})
+
+
+
+def contact_us(request):
+    form = ContactUsForm()
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            feedback = Feedback.objects.create(
+                name = request.POST.get('name'),
+                email = request.POST.get('email'),
+                subject = request.POST.get('subject'),
+                message = request.POST.get('message')
+            )
+            feedback.save()
+            email_admin_feedback_notification(request, feedback)
+            return redirect('feedback-thank-you')
+    return render(request, 'showcase/contact_us.html', {'form':form})
+
+def contact_us_thank_you(request):
+    return render(request, 'showcase/contact_us_thank_you.html')

@@ -32,3 +32,6 @@ class SizesAdmin(TranslationAdmin):
 class CategoriesAdmin(TranslationAdmin):
     class Meta:
         model = Categories
+
+admin.site.register(Feedback)
+admin.site.register(Order)

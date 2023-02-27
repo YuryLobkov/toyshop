@@ -1,5 +1,5 @@
 from django import forms
-from .models import Order, Toy
+from .models import Order, Feedback, Toy
 from django.utils.translation import gettext_lazy as _
 
 
@@ -86,3 +86,20 @@ class FilterShowcaseForm(forms.ModelForm):
         self.initial['in_stock'] = initials[3]        
         for field in self.fields.values():
             field.required = False
+
+
+class ContactUsForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['name',
+                  'email',
+                  'subject',
+                  'message']
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            style_data = {
+                'class': 'form-control',
+            }
+            self.fields[str(field)].widget.attrs.update(style_data)
