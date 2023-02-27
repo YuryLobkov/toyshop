@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-25 11:52+0500\n"
+"POT-Creation-Date: 2023-02-27 12:48+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -162,16 +162,19 @@ msgstr "Страница покупки"
 # ===============PURCHASE PAGE===============
 #: .\showcase\templates\showcase\purchase_page.html:18
 #: .\showcase\templates\showcase\showcase.html:36
+#: .\showcase\templates\showcase\toy_detail.html:16
 msgid "Material:"
 msgstr "Материал:"
 
 #: .\showcase\templates\showcase\purchase_page.html:19
 #: .\showcase\templates\showcase\showcase.html:37
+#: .\showcase\templates\showcase\toy_detail.html:17
 msgid "Size:"
 msgstr "Размер:"
 
 #: .\showcase\templates\showcase\purchase_page.html:20
 #: .\showcase\templates\showcase\showcase.html:38
+#: .\showcase\templates\showcase\toy_detail.html:18
 msgid "Category:"
 msgstr "Категория:"
 
@@ -182,12 +185,12 @@ msgstr "В наличии"
 
 #: .\showcase\templates\showcase\showcase.html:15
 msgid "Filter"
-msgstr "Отфильтровать"
+msgstr "Применить"
 
 # ===============SHOWCASE PAGE===============
 #: .\showcase\templates\showcase\showcase.html:42
 msgid "Avalible for"
-msgstr "Доступен к покупке"
+msgstr "В наличии:"
 
 #: .\showcase\templates\showcase\showcase.html:45
 msgid "Out of stock"
@@ -200,6 +203,22 @@ msgstr "Таких игрушек нет :("
 #: .\showcase\templates\showcase\showcase.html:57
 msgid "Try to change filters"
 msgstr "Попробуйте изменить фильтры"
+
+#: .\showcase\templates\showcase\toy_detail.html:22
+msgid "Buy now for"
+msgstr "Купить"
+
+#: .\showcase\templates\showcase\toy_detail.html:26
+msgid "Out of stock :("
+msgstr "Нет в наличии"
+
+#: .\showcase\templates\showcase\toy_detail.html:29
+msgid "Buy for"
+msgstr "Купить"
+
+#: .\showcase\templates\showcase\toy_detail.html:30
+msgid "Order production"
+msgstr "Индивидуальный заказ"
 
 #: .\toyshop\settings.py:128
 msgid "Russian"

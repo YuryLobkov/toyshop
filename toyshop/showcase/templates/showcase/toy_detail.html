@@ -1,4 +1,5 @@
 {% extends 'showcase/base.html' %}
+{% load i18n %}
 {% block title %} {{toy.name}} {% endblock title %}
 
 {% block content %}
@@ -12,21 +13,21 @@
         <div class="col-lg-6">
             <h1 class="display-5 fw-bold lh-1 mb-3">{{toy.name|capfirst}}</h1>
             <p class="lead">{{toy.description}}</p>
-            <p class="lead">Material: {{toy.material}}</p>
-            <p class="lead">Size: {{toy.size}}</p>
-            <p class="lead">Category: {{toy.category}}</p>
+            <p class="lead">{% trans 'Material:' %} {{toy.material}}</p>
+            <p class="lead">{% trans 'Size:' %} {{toy.size}}</p>
+            <p class="lead">{% trans 'Category:' %} {{toy.category}}</p>
 
             {% if toy.in_stock %}
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <a href="{% url 'purchase' slug=toy.slug %}" class="btn btn-success btn-lg px-4 me-md-2">Buy now for
-                    {{toy.price}} ₽</a>
+                <a href="{% url 'purchase' slug=toy.slug %}" class="btn btn-success btn-lg px-4 me-md-2">{% trans 'Buy now for' %}
+                    {{toy.price_ru}} ₽ / {{toy.price_en}} ₾</a>
             </div>
             {% else %}
-            <p class="badge text-bg-danger fs-6">Out of stock :(</p>
+            <p class="badge text-bg-danger fs-6">{% trans 'Out of stock :(' %}</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                 <button type="button" class="btn btn-outline-secondary btn-lg px-4" disabled><span
-                        class="text-decoration-line-through">Buy for {{toy.price}} ₽</span></button>
-                <a class="btn btn-primary btn-lg px-4 me-md-2" href="{% url 'order' %}">Order production</a>
+                        class="text-decoration-line-through">{% trans 'Buy for' %} {{toy.price_ru}} ₽ / {{toy.price_en}} ₾</span></button>
+                <a class="btn btn-primary btn-lg px-4 me-md-2" href="{% url 'order' %}">{% trans 'Order production' %}</a>
             </div>
             {% endif %}
 
