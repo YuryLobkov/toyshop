@@ -1,0 +1,13 @@
+<div id="alert" class="text-center alert alert-info alert-dismissible fade show" role="alert"
+     style="display:none; width: 100%; height: 10%; margin: 0em;
+     left: 0%; top: 0em; position: fixed;" >
+    <p>Please, wait... Your message is processing...</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $('form').submit(function(){
+        $('#alert').show();
+        $('#submit-btn').prop('disabled', true);
+    });
+</script>

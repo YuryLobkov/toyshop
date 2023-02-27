@@ -1,14 +1,15 @@
 {% extends 'showcase/base.html' %}
-{% block title %} Thank you {% endblock title %}
+{% block title %} Contact us {% endblock title %}
 
 {% block content %}
+
 <div class="container">
-    <h1 class="text-center m-2">Thank you for your order!</h1>
-    <h3 class="text-center m-5">Your order  is #{{order.id}}</h3>
+    <h1 class="text-dark text-center">Thank you for your feedback!</h1>
+    <p class="text-dark text-center lead">We will contact you as soon as possible</p>
     <div d-grid class='gap-2 d-md-flex justify-content-md-center mt-5'>
         <a href="{% url 'showcase_view' %}" class="text-center btn btn-primary">Back to homepage</a>
     </div>
     
-
 </div>
+
 {% endblock content %}

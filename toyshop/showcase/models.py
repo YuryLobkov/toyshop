@@ -88,3 +88,12 @@ class Order(models.Model):
         }
         return reverse('thank-you', kwargs=kwargs)
     
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=200)
+    email = models.EmailField(max_length=254)
+    subject = models.CharField(max_length=200)
+    message = models.TextField()
+    
+    def __str__(self):
+        return self.email + self.subject
