@@ -1,0 +1,229 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-02-27 12:48+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+# ===============PURCHASE FORM TRANSLATION===============
+#: .\showcase\forms.py:17 .\showcase\forms.py:45
+msgid "example@mail.com"
+msgstr "вашапочта@майл.ру"
+
+#: .\showcase\forms.py:18 .\showcase\forms.py:46
+msgid "Jane Joe"
+msgstr "Имя Фамилия"
+
+#: .\showcase\forms.py:19 .\showcase\forms.py:47
+msgid "+995999999999"
+msgstr "+78887776655"
+
+#: .\showcase\forms.py:21
+msgid "Let us know details for you order"
+msgstr "Пожелания к заказу"
+
+#: .\showcase\forms.py:27 .\showcase\forms.py:55
+msgid "Your email"
+msgstr "Ваша почта"
+
+#: .\showcase\forms.py:28 .\showcase\forms.py:56
+msgid "Your name"
+msgstr "Ваше имя"
+
+#: .\showcase\forms.py:29 .\showcase\forms.py:57
+msgid "Phone number"
+msgstr "Номер телефона"
+
+#: .\showcase\forms.py:30 .\showcase\forms.py:58
+msgid "How can we comunicate"
+msgstr "Как с вами связаться"
+
+#: .\showcase\forms.py:31 .\showcase\forms.py:59
+msgid "Comments for your order"
+msgstr "Пожелания к заказу"
+
+#: .\showcase\forms.py:49
+msgid ""
+"Please describe what kind of toy you want, and I will contact you to clarify "
+"details"
+msgstr "Пожелания к заказу"
+
+# ===============SHOWCASE FILTER TRANSLATION===============
+#: .\showcase\forms.py:79
+msgid "--All materials--"
+msgstr "Все материалы"
+
+#: .\showcase\forms.py:80
+msgid "--All sizes--"
+msgstr "Все размеры"
+
+#: .\showcase\forms.py:81
+msgid "--All categories--"
+msgstr "Все категории"
+
+# ===============BASE HTML TRANSLATION===============
+#: .\showcase\templates\showcase\base.html:41
+msgid "Showcase"
+msgstr "Витрина"
+
+#: .\showcase\templates\showcase\base.html:48
+msgid "Order custom"
+msgstr "Индивидуальный заказ"
+
+#: .\showcase\templates\showcase\base.html:55
+#: .\showcase\templates\showcase\index.html:64
+msgid "Contact us"
+msgstr "Связаться с нами"
+
+#: .\showcase\templates\showcase\base.html:91
+msgid "Contact us in social media:"
+msgstr "Ищите нас в социальных сетях:"
+
+#: .\showcase\templates\showcase\base.html:103
+msgid "All Rights Reserved"
+msgstr "Все права защищены."
+
+# ===============CAROUSEL===============
+#: .\showcase\templates\showcase\index.html:26
+msgid "Example headline."
+msgstr "1 слайд"
+
+#: .\showcase\templates\showcase\index.html:27
+msgid ""
+"Some representative placeholder content for the first slide of the carousel."
+msgstr "Контент 1 слайда"
+
+# ===============INDEX HTML TRANSLATION===============
+#: .\showcase\templates\showcase\index.html:28
+msgid "Works showcase"
+msgstr "Витрина"
+
+#: .\showcase\templates\showcase\index.html:44
+msgid "Another example headline."
+msgstr "2 слайд"
+
+#: .\showcase\templates\showcase\index.html:45
+msgid ""
+"Some representative placeholder content for the second slide of the carousel."
+msgstr "Контент 2 слайда"
+
+#: .\showcase\templates\showcase\index.html:46
+msgid "Order custom toy"
+msgstr "Индивидуальный заказ"
+
+#: .\showcase\templates\showcase\index.html:62
+msgid "One more for good measure."
+msgstr "3 слайд"
+
+#: .\showcase\templates\showcase\index.html:63
+msgid ""
+"Some representative placeholder content for the third slide of this carousel."
+msgstr "Контент 3 слайда"
+
+#: .\showcase\templates\showcase\index.html:71
+msgid "Previous"
+msgstr "Предыдущий"
+
+#: .\showcase\templates\showcase\index.html:75
+msgid "Next"
+msgstr "Следующий"
+
+# ===============ORDER PAGE===============
+#: .\showcase\templates\showcase\order_page.html:9
+msgid "Order custom teddy toy!"
+msgstr "Заказать индивидуальную игрушку!"
+
+# ===============ORDER & PURCHASE PAGE===============
+#: .\showcase\templates\showcase\order_page.html:16
+#: .\showcase\templates\showcase\purchase_page.html:34
+msgid "Confirm"
+msgstr "Подтвердить"
+
+# PURCHASE PAGE
+#: .\showcase\templates\showcase\purchase_page.html:6
+msgid "Purchase page"
+msgstr "Страница покупки"
+
+# ===============PURCHASE PAGE===============
+#: .\showcase\templates\showcase\purchase_page.html:18
+#: .\showcase\templates\showcase\showcase.html:36
+#: .\showcase\templates\showcase\toy_detail.html:16
+msgid "Material:"
+msgstr "Материал:"
+
+#: .\showcase\templates\showcase\purchase_page.html:19
+#: .\showcase\templates\showcase\showcase.html:37
+#: .\showcase\templates\showcase\toy_detail.html:17
+msgid "Size:"
+msgstr "Размер:"
+
+#: .\showcase\templates\showcase\purchase_page.html:20
+#: .\showcase\templates\showcase\showcase.html:38
+#: .\showcase\templates\showcase\toy_detail.html:18
+msgid "Category:"
+msgstr "Категория:"
+
+# ===============SHOWCASE PAGE===============
+#: .\showcase\templates\showcase\showcase.html:12
+msgid "Avalible only"
+msgstr "В наличии"
+
+#: .\showcase\templates\showcase\showcase.html:15
+msgid "Filter"
+msgstr "Применить"
+
+# ===============SHOWCASE PAGE===============
+#: .\showcase\templates\showcase\showcase.html:42
+msgid "Avalible for"
+msgstr "В наличии:"
+
+#: .\showcase\templates\showcase\showcase.html:45
+msgid "Out of stock"
+msgstr "Нет в наличии"
+
+#: .\showcase\templates\showcase\showcase.html:56
+msgid "No toys found"
+msgstr "Таких игрушек нет :("
+
+#: .\showcase\templates\showcase\showcase.html:57
+msgid "Try to change filters"
+msgstr "Попробуйте изменить фильтры"
+
+#: .\showcase\templates\showcase\toy_detail.html:22
+msgid "Buy now for"
+msgstr "Купить"
+
+#: .\showcase\templates\showcase\toy_detail.html:26
+msgid "Out of stock :("
+msgstr "Нет в наличии"
+
+#: .\showcase\templates\showcase\toy_detail.html:29
+msgid "Buy for"
+msgstr "Купить"
+
+#: .\showcase\templates\showcase\toy_detail.html:30
+msgid "Order production"
+msgstr "Индивидуальный заказ"
+
+#: .\toyshop\settings.py:128
+msgid "Russian"
+msgstr ""
+
+#: .\toyshop\settings.py:129
+msgid "English"
+msgstr ""

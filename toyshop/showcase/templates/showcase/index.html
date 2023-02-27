@@ -1,5 +1,6 @@
 {% extends 'showcase/base.html' %}
 {% load static %}
+{% load i18n %}
 {% block title %} Homepage {% endblock title %}
 {% block content %}
 <div id="myCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
@@ -22,9 +23,9 @@
                     <img src="{% static 'carousel_item1.png' %}" class="carousel-img-responsive" alt="Toy">
                 </div>                
                 <div class="carousel-caption text-start text-dark">
-                    <h1>Example headline.</h1>
-                    <p>Some representative placeholder content for the first slide of the carousel.</p>
-                    <p><a class="btn btn-lg btn-primary custom-buttons" href="{% url 'showcase_view' %}">Works showcase</a></p>
+                    <h1>{% trans 'Example headline.' %}</h1>
+                    <p>{% trans 'Some representative placeholder content for the first slide of the carousel.' %}</p>
+                    <p><a class="btn btn-lg btn-primary custom-buttons" href="{% url 'showcase_view' %}">{% trans 'Works showcase' %}</a></p>
                 </div>
             </div>
         </div>
@@ -40,9 +41,9 @@
                     <img src="{% static 'pryaza.png' %}" class="carousel-img-responsive" alt="Toy">
                 </div>  
                 <div class="carousel-caption text-dark">
-                    <h1>Another example headline.</h1>
-                    <p>Some representative placeholder content for the second slide of the carousel.</p>
-                    <p><a class="btn btn-lg btn-primary custom-buttons" href="{% url 'order' %}">Order custom toy</a></p>
+                    <h1>{% trans 'Another example headline.' %}</h1>
+                    <p>{% trans 'Some representative placeholder content for the second slide of the carousel.' %}</p>
+                    <p><a class="btn btn-lg btn-primary custom-buttons" href="{% url 'order' %}">{% trans 'Order custom toy' %}</a></p>
                 </div>
             </div>
         </div>
@@ -58,20 +59,20 @@
                     <img src="{% static 'carousel_item1.png' %}" class="carousel-img-responsive" alt="Toy">
                 </div>  
                 <div class="carousel-caption text-end text-dark">
-                    <h1>One more for good measure.</h1>
-                    <p>Some representative placeholder content for the third slide of this carousel.</p>
-                    <p><a class="btn btn-lg btn-primary custom-buttons" href="#">Contact us</a></p>
+                    <h1>{% trans 'One more for good measure.' %}</h1>
+                    <p>{% trans 'Some representative placeholder content for the third slide of this carousel.' %}</p>
+                    <p><a class="btn btn-lg btn-primary custom-buttons" href="#">{% trans 'Contact us' %}</a></p>
                 </div>
             </div>
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+        <span class="visually-hidden">{% trans 'Previous' %}</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
+        <span class="visually-hidden">{% trans 'Next' %}</span>
     </button>
 </div>
 {% endblock content %}
