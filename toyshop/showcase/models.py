@@ -37,11 +37,11 @@ class Toy(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        if Toy.objects.filter(name=self.name).exists():
-            value = f'{self.name}_{get_random_string(length=4)}'
+        if Toy.objects.filter(name_en=self.name_en).exists():
+            value = f'{self.name_en}_{get_random_string(length=4)}'
             self.slug = slugify(value, allow_unicode=True)
         else:
-            self.slug = slugify(self.name, allow_unicode=True)
+            self.slug = slugify(self.name_en, allow_unicode=True)
         super(Toy, self).save(*args, **kwargs)
 
 
