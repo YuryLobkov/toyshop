@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-02-27 20:18+0500\n"
+"POT-Creation-Date: 2023-02-28 12:55-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgstr "+78887776655"
 
 #: .\showcase\forms.py:21
 msgid "Let us know details for you order"
-msgstr "Пожелания к заказу"
+msgstr "Ваши пожелания к заказу"
 
 #: .\showcase\forms.py:27 .\showcase\forms.py:55
 msgid "Your email"
@@ -55,26 +55,26 @@ msgstr "Как с вами связаться"
 
 #: .\showcase\forms.py:31 .\showcase\forms.py:59
 msgid "Comments for your order"
-msgstr "Пожелания к заказу"
+msgstr "Ваши пожелания к заказу"
 
 #: .\showcase\forms.py:49
 msgid ""
 "Please describe what kind of toy you want, and I will contact you to clarify "
 "details"
-msgstr "Пожелания к заказу"
+msgstr "Ваши пожелания к заказу"
 
 # ===============SHOWCASE FILTER TRANSLATION===============
 #: .\showcase\forms.py:79
 msgid "--All materials--"
-msgstr "Все материалы"
+msgstr "--Все материалы--"
 
 #: .\showcase\forms.py:80
 msgid "--All sizes--"
-msgstr "Все размеры"
+msgstr "--Все размеры--"
 
 #: .\showcase\forms.py:81
 msgid "--All categories--"
-msgstr "Все категории"
+msgstr "--Все категории--"
 
 # ===============CONTACT US===============
 #: .\showcase\forms.py:101
@@ -100,7 +100,7 @@ msgstr "Витрина"
 
 #: .\showcase\templates\showcase\base.html:48
 msgid "Order custom"
-msgstr "Индивидуальный заказ"
+msgstr "Заказать"
 
 #: .\showcase\templates\showcase\base.html:55
 #: .\showcase\templates\showcase\index.html:64
@@ -136,7 +136,7 @@ msgstr "Контент 1 слайда"
 # ===============INDEX HTML TRANSLATION===============
 #: .\showcase\templates\showcase\index.html:28
 msgid "Works showcase"
-msgstr "Витрина"
+msgstr "Посмотреть работы"
 
 #: .\showcase\templates\showcase\index.html:44
 msgid "Another example headline."
@@ -149,7 +149,7 @@ msgstr "Контент 2 слайда"
 
 #: .\showcase\templates\showcase\index.html:46
 msgid "Order custom toy"
-msgstr "Индивидуальный заказ"
+msgstr "Сделать игрушку на заказ"
 
 #: .\showcase\templates\showcase\index.html:62
 msgid "One more for good measure."
@@ -243,7 +243,19 @@ msgstr "Купить"
 
 #: .\showcase\templates\showcase\toy_detail.html:30
 msgid "Order production"
-msgstr "Индивидуальный заказ"
+msgstr "Сделать на заказ"
+
+#: .\templates\404.html:4
+msgid "PageNotFound"
+msgstr "Страница не найдена"
+
+#: .\templates\404.html:8
+msgid "looks like page you are looking for has not yet been knitted"
+msgstr "Похоже, что эту страницу еще не связали..."
+
+#: .\templates\404.html:9
+msgid "Back to homepage"
+msgstr "Назад на главную"
 
 #: .\toyshop\settings.py:128
 msgid "Russian"
