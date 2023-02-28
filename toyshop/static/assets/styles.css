@@ -71,3 +71,8 @@ tr {
     font-weight: bolder !important;
     border-radius: 0% !important;
 }
+
+.col-lg-55 {
+    flex: 0 0 auto;
+    width: 48%;
+}
