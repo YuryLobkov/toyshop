@@ -19,38 +19,44 @@
 </div>
 
 {% if toy_list %}
-<div class="container d-lg-flex justify-content-center">
-    {% for toy in toy_list %}
-    <div class="card mb-3 m-2 col-lg-6" >
-        <a style="text-decoration: none; color: black;" target="_top" href="{% url 'toy-detail' slug=toy.slug %}">
-            <div class="row g-0 my-2 justify-content-center">
-                <div class="col-lg-6 d-flex align-items-center " style="width: 200px;">
-                    <img src="{{toy.image.url}}" class="card-img-top" alt="{{toy.name}}">
-                </div>
-                <div class="col-lg-6">
-                    <div class="card-body">
-                        <h5 class="card-title">{{toy.name}}</h5>
-                        <p class="card-text">{{toy.description}}</p>
+<div class="container mb-5">
+    <div class="row justify-content-center">
+        {% for toy in toy_list %}
+        <div class="col-lg-6 my-2">
+            <div class="card h-100" >
+                <a style="text-decoration: none; color: black;" target="_top" href="{% url 'toy-detail' slug=toy.slug %}">
+                    <div class="row g-0 my-2 justify-content-center">
+                        <div class="col-lg-6 d-flex align-items-center " style="width: 200px;">
+                            <img src="{{toy.image.url}}" class="card-img-top" alt="{{toy.name}}">
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card-body">
+                                <h5 class="card-title">{{toy.name}}</h5>
+                                <p class="card-text">{{toy.description}}</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">{% trans 'Material:' %} {{toy.material}}</li>
+                                <li class="list-group-item">{% trans 'Size:' %} {{toy.size}}</li>
+                                <li class="list-group-item">{% trans 'Category:' %} {{toy.category}}</li>
+                            </ul>
+                            <div class="card-body">
+                                {% if toy.in_stock %}
+                                    <span>{% trans 'Avalible for' %}</span>
+                                    <span class="fw-bold fs-5">{{toy.price_ru}} ₽ / {{toy.price_en}} ₾ </span>
+                                {% else %}
+                                    <span>{% trans 'Out of stock' %}</span>
+                                    <span class="fw-light text-decoration-line-through">{{toy.price_ru}} ₽ / {{toy.price_en}} ₾ </span>                            
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{% trans 'Material:' %} {{toy.material}}</li>
-                        <li class="list-group-item">{% trans 'Size:' %} {{toy.size}}</li>
-                        <li class="list-group-item">{% trans 'Category:' %} {{toy.category}}</li>
-                    </ul>
-                    <div class="card-body">
-                        {% if toy.in_stock %}
-                            <span>{% trans 'Avalible for' %}</span>
-                            <span class="fw-bold fs-5">{{toy.price_ru}} ₽ / {{toy.price_en}} ₾ </span>
-                        {% else %}
-                            <span>{% trans 'Out of stock' %}</span>
-                            <span class="fw-light text-decoration-line-through">{{toy.price}} ₽</span>                            
-                        {% endif %}
-                    </div>
-                </div>
+                </a>
             </div>
-        </a>
+        </div>
+        
+        {% endfor %}
     </div>
-    {% endfor %}
+    
 </div>
 {% else %}
 <h2 class="text-center mt-5">{% trans 'No toys found' %}</h2>
