@@ -31,7 +31,7 @@ class Toy(models.Model):
     quantity = models.PositiveIntegerField()
     category = models.ForeignKey("Categories", on_delete=models.CASCADE)
     slug = models.SlugField('Toy slug', max_length=150, null=False, blank=False, unique=True, editable=False)
-    image = models.ImageField(null=True, upload_to=path_and_rename, blank=True, default='default.jpg')
+    image = models.ImageField(null=True, upload_to=path_and_rename, blank=True, default='default.png')
 
     def __str__(self):
         return self.name

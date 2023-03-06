@@ -7,7 +7,11 @@
 <div class="card mb-3 m-2" >
     <div class="row g-0 my-2 justify-content-center">
         <div class="col-lg-6 d-flex align-items-center " style="width: 200px;">
+            {% if purchased_toy.image %}
             <img src="{{purchased_toy.image.url}}" class="card-img-top" alt="{{purchased_toy.name}}">
+            {% else %}
+            <img src="/media/default.png" class="card-img-top" alt="{{purchased_toy.name}}">
+            {% endif %}
         </div>
         <div class="col-lg-6">
             <div class="card-body">
